@@ -10,4 +10,5 @@ Which was constructed using web scrapping tecniques from the next website: https
 
 Alse we use as a guide the next example maked in R from: https://cosmoduende.medium.com/dc-comics-vs-marvel-comics-an%C3%A1lisis-exploratorio-y-visualizaci%C3%B3n-de-datos-con-r-b0cf565e44e2
 
+You can execute this project in the link 👉: https://colab.research.google.com/drive/1btc3IjdXb7SCOK_lQSe_dqt9OVTMMmMT?usp=sharing
 **Come and analyse!**
