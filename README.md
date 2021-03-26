@@ -27,6 +27,6 @@ You can execute this project in the link 👉: https://colab.research.google.com
 # Data Exploratory
 # Data Cleaning
 # Questions 
-## How many heroes are there in DC Comics and Marvel Comics?
+### How many heroes are there in DC Comics and Marvel Comics?
 
 **Come and analyse!**
