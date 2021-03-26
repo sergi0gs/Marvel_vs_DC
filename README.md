@@ -27,12 +27,10 @@ You can execute this project in the link 👉: https://colab.research.google.com
 
 # Data Exploratory
 ## Import libraries
-```
-import pandas as pd
-import numpy as np
-import matplotlib.pyplot as plt
-import seaborn as sns
-```
+
+![import_libraries](https://user-images.githubusercontent.com/71573671/112564400-3306b880-8da9-11eb-9208-3664d6660664.PNG)
+
+
 
 # Data Cleaning
 # Questions 
