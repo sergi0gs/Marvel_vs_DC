@@ -26,9 +26,30 @@ You can execute this project in the link 👉: https://colab.research.google.com
 10. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](https://github.com/sergi0gs/Marvel_vs_DC#10what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
 
 # Data Exploratory
-## Import libraries
+### Import libraries
 
 ![import_libraries](https://user-images.githubusercontent.com/71573671/112564400-3306b880-8da9-11eb-9208-3664d6660664.PNG)
+
+### Read files
+In this case we are going to use the raw version of github.
+
+![2_read_files](https://user-images.githubusercontent.com/71573671/112565235-ba086080-8daa-11eb-9e37-8d39bd040ba2.PNG)
+
+### Data shape
+
+![3_data_shape](https://user-images.githubusercontent.com/71573671/112565180-a0671900-8daa-11eb-87a2-3497b985000d.PNG)
+
+### Print information about the dataframes
+
+![4_information_df_1](https://user-images.githubusercontent.com/71573671/112566123-639c2180-8dac-11eb-8bc0-fb12578c5307.PNG)
+
+![5_information_df_2](https://user-images.githubusercontent.com/71573671/112566122-639c2180-8dac-11eb-871b-05a58c23b9e7.PNG)
+
+We see in this example that there are too many columns so later we will change it to a long format.
+
+![6_information_df_3](https://user-images.githubusercontent.com/71573671/112566121-63038b00-8dac-11eb-9f53-c9d1c9e034ef.PNG)
+
+
 
 
 
