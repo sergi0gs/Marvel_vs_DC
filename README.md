@@ -26,6 +26,14 @@ You can execute this project in the link 👉: https://colab.research.google.com
 10. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](https://github.com/sergi0gs/Marvel_vs_DC#10what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
 
 # Data Exploratory
+## Import libraries
+```
+import pandas as pd
+import numpy as np
+import matplotlib.pyplot as plt
+import seaborn as sns
+```
+
 # Data Cleaning
 # Questions 
 ## 1.How many heroes are there in DC Comics and Marvel Comics?
