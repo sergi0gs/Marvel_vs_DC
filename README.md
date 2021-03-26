@@ -14,7 +14,7 @@ You can execute this project in the link 👉: https://colab.research.google.com
 
 # What do we want to know?
 1. [How many heroes are there in DC Comics and Marvel Comics?](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/README.md#how-many-heroes-are-there-in-dc-comics-and-marvel-comics) 
-2. What is the predominant gender in the characters of DC Comics and Marvel Comics?
+2. [What is the predominant gender in the characters of DC Comics and Marvel Comics?](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/README.md#what-is-the-predominant-gender-in-the-characters-of-dc-comics-and-marvel-comics)
 3. What is the predominant race in both comics?
 4. Which has more Heroes or Villains?
 5. Realize a comparative between the character abilites of both comics.
