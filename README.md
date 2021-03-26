@@ -43,14 +43,30 @@ In this case we are going to use the raw version of github.
 
 ![4_information_df_1](https://user-images.githubusercontent.com/71573671/112566123-639c2180-8dac-11eb-8bc0-fb12578c5307.PNG)
 
+
+
 ![5_information_df_2](https://user-images.githubusercontent.com/71573671/112566122-639c2180-8dac-11eb-871b-05a58c23b9e7.PNG)
+
+
 
 We see in this example that there are too many columns so later we will change it to a long format.
 
 ![6_information_df_3](https://user-images.githubusercontent.com/71573671/112566121-63038b00-8dac-11eb-9f53-c9d1c9e034ef.PNG)
 
 
+### Lookinf for null values
 
+![7_null_values](https://user-images.githubusercontent.com/71573671/112567241-82031c80-8dae-11eb-9b1d-8b995ef6b94f.PNG)
+
+![8_nulls_values_super_hero_powers](https://user-images.githubusercontent.com/71573671/112567240-816a8600-8dae-11eb-8f41-1db2afd4b37a.PNG)
+
+In this case, we can not see the total number of nulls so we are going tu "sum()" the result to know if there are any null in the whole dataframe.
+
+![10_total_nulls_super_hero_powers](https://user-images.githubusercontent.com/71573671/112567446-db6b4b80-8dae-11eb-9aa0-3d85e4dbc370.PNG)
+
+We can see that there are not any null value in this dataframe.
+
+![9_nulls_values_super_heroes](https://user-images.githubusercontent.com/71573671/112567237-80d1ef80-8dae-11eb-9418-929a79c4aff0.PNG)
 
 
 # Data Cleaning
