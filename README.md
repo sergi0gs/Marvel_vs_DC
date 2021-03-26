@@ -13,7 +13,7 @@ Alse we use as a guide the next example maked in R from: https://cosmoduende.med
 You can execute this project in the link 👉: https://colab.research.google.com/drive/1btc3IjdXb7SCOK_lQSe_dqt9OVTMMmMT?usp=sharing
 
 # What do we want to know?
-1. [How many heroes are there in DC Comics and Marvel Comics?](#how-many-heroes-are-there-in-dc-comics-and marvel-comics-?) 
+1. [How many heroes are there in DC Comics and Marvel Comics?](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/README.md#how-many-heroes-are-there-in-dc-comics-and-marvel-comics) 
 2. What is the predominant gender in the characters of DC Comics and Marvel Comics?
 3. What is the predominant race in both comics?
 4. Which has more Heroes or Villains?
