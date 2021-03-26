@@ -38,5 +38,3 @@ You can execute this project in the link 👉: https://colab.research.google.com
 ## 8.Who are the fastest characters?
 ## 9.Who are the characters with more power?
 ## 10.What superpowers predominate in the characters of DC Comics and Marvel Comics?
-
-**Come and analyse!**
