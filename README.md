@@ -28,15 +28,15 @@ You can execute this project in the link 👉: https://colab.research.google.com
 # Data Exploratory
 # Data Cleaning
 # Questions 
-## How many heroes are there in DC Comics and Marvel Comics?
-## What is the predominant gender in the characters of DC Comics and Marvel Comics?
-## What is the predominant race in both comics?
-## Which has more Heroes or Villains?
-## Realize a comparative between the character abilites of both comics.
-## Who are the most intelligent characters?
-## Who are the strongest characters?
-## Who are the fastest characters?
-## Who are the characters with more power?
-## What superpowers predominate in the characters of DC Comics and Marvel Comics?
+## 1.How many heroes are there in DC Comics and Marvel Comics?
+## 2.What is the predominant gender in the characters of DC Comics and Marvel Comics?
+## 3.What is the predominant race in both comics?
+## 4.Which has more Heroes or Villains?
+## 5.Realize a comparative between the character abilites of both comics.
+## 6.Who are the most intelligent characters?
+## 7.Who are the strongest characters?
+## 8.Who are the fastest characters?
+## 9.Who are the characters with more power?
+## 10.What superpowers predominate in the characters of DC Comics and Marvel Comics?
 
 **Come and analyse!**
