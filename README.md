@@ -1,10 +1,12 @@
 # Table of Contents
 - [Introduction](#introduction)
+- [Resources]()
 - [What do we want to know?](#what-do-we-want-to-know)
 - [Data Exploratory](#data-exploratory)
   - [Import libraries](#import-libraries)
   - [Read files](#read-files)
   - [Data shape](#data-shape)
+    - [
   - [Print information about the dataframes](#print-information-about-the-dataframes)
   - [Lookinf for null values](#lookinf-for-null-values)
 - [Data Cleaning](#data-cleaning)
@@ -26,6 +28,12 @@ Alse we use as a guide the next example maked in R from: https://cosmoduende.med
 
 You can execute this project in the link 👇: 
 https://colab.research.google.com/drive/10FLK0zI3RWUyMDFuFGhjRH1ImmZWYKKO?authuser=2#scrollTo=JJq8smoyAiU_
+
+# Resources
+We are going to use the next 3 datasets:
+1. [SuperHero.csv](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/datasets/SuperheroDataset.csv)
+2. [heroes_information.csv](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/datasets/heroes_information.csv)
+3. [super_hero_powers.csv](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/datasets/super_hero_powers.csv)
 
 # What do we want to know?
 1. [How many heroes are there in DC Comics and Marvel Comics?](#1how-many-heroes-are-there-in-dc-comics-and-marvel-comics) 
