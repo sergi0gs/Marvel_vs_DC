@@ -1,18 +1,31 @@
 # Table of Contents
 - [Introduction](#introduction)
-- [Resources]()
+- [Resources](#resources)
 - [What do we want to know?](#what-do-we-want-to-know)
 - [Data Exploratory](#data-exploratory)
   - [Import libraries](#import-libraries)
   - [Read files](#read-files)
   - [Data shape](#data-shape)
-    - [
-  - [Print information about the dataframes](#print-information-about-the-dataframes)
-  - [Lookinf for null values](#lookinf-for-null-values)
+    - [SuperHero.csv]()
+    - [heroes_information_csv]()
+    - [Super_hero_powers.csv]()
+  - [Information](#print-information-about-the-dataframes)
+    - [SuperHero.csv]()
+    - [heroes_information_csv]()
+    - [Super_hero_powers.csv]()
+  - [Null values](#null-values)
+    - [SuperHero.csv]()
+    - [heroes_information_csv]()
+    - [Super_hero_powers.csv]() 
 - [Data Cleaning](#data-cleaning)
+  - [SuperHero.csv]()
+  - [heroes_information_csv]()
+  - [Super_hero_powers.csv]()
+- [Data Wrangling]()
+  - [SuperHero.csv]()
+  - [heroes_information_csv]()
+  - [Super_hero_powers.csv]()
 - [Questions](#questions)
-
-
 
 # Introduction
 
@@ -56,10 +69,10 @@ In this case we are going to use the raw version of github.
 
 ### Data shape
 
-### Print information about the dataframes
+### Information
 
 
-### Lookinf for null values
+### Null Values
 
 
 # Data Cleaning
