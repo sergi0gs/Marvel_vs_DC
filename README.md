@@ -1,5 +1,17 @@
-# Table of Contenst
+# Table of Contents
 - [Introduction](#introduction)
+- [What do we want to know?](#what-do-we-want-to-know)
+- [Data Exploratory](#data-exploratory)
+  - [Import libraries](#import-libraries)
+  - [Read files](#read-files)
+  - [Data shape](#data-shape)
+  - [Print information about the dataframes](#print-information-about-the-dataframes)
+  - [Lookinf for null values](#lookinf-for-null-values)
+- [Data Cleaning](#data-cleaning)
+- [Questions](#questions)
+
+
+
 # Introduction
 
 In this project we will try to analyse the information about the heroes of Marvel and DC comics learning about the different types of techniques that we have in Python to analyse, clean, transform and visualize data.
