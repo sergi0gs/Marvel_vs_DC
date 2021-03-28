@@ -28,16 +28,16 @@ You can execute this project in the link 👇:
 https://colab.research.google.com/drive/10FLK0zI3RWUyMDFuFGhjRH1ImmZWYKKO?authuser=2#scrollTo=JJq8smoyAiU_
 
 # What do we want to know?
-1. [How many heroes are there in DC Comics and Marvel Comics?](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/README.md#1how-many-heroes-are-there-in-dc-comics-and-marvel-comics) 
-2. [What is the predominant gender in the characters of DC Comics and Marvel Comics?](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/README.md#2what-is-the-predominant-gender-in-the-characters-of-dc-comics-and-marvel-comics)
-3. [What is the predominant race in both comics?](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/README.md3#what-is-the-predominant-race-in-both-comics)
-4. [Which has more Heroes or Villains?](https://github.com/sergi0gs/Marvel_vs_DC#4which-has-more-heroes-or-villains)
-5. [Realize a comparative between the character abilites of both comics.](https://github.com/sergi0gs/Marvel_vs_DC#5realize-a-comparative-between-the-character-abilites-of-both-comics)
-6. [Who are the most intelligent characters?](https://github.com/sergi0gs/Marvel_vs_DC#6who-are-the-most-intelligent-characters)
-7. [Who are the strongest characters?](https://github.com/sergi0gs/Marvel_vs_DC#7who-are-the-strongest-characters)
-8. [Who are the fastest characters?](https://github.com/sergi0gs/Marvel_vs_DC#8who-are-the-fastest-characters)
-9. [Who are the characters with more power?](https://github.com/sergi0gs/Marvel_vs_DC#9who-are-the-characters-with-more-power)
-10. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](https://github.com/sergi0gs/Marvel_vs_DC#10what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
+1. [How many heroes are there in DC Comics and Marvel Comics?](#1how-many-heroes-are-there-in-dc-comics-and-marvel-comics) 
+2. [What is the predominant gender in the characters of DC Comics and Marvel Comics?](#2what-is-the-predominant-gender-in-the-characters-of-dc-comics-and-marvel-comics)
+3. [What is the predominant race in both comics?](#3what-is-the-predominant-race-in-both-comics)
+4. [Which has more Heroes or Villains?](#4which-has-more-heroes-or-villains)
+5. [Realize a comparative between the character abilites of both comics.](#5realize-a-comparative-between-the-character-abilites-of-both-comics)
+6. [Who are the most intelligent characters?](#6who-are-the-most-intelligent-characters)
+7. [Who are the strongest characters?](#7who-are-the-strongest-characters)
+8. [Who are the fastest characters?](#8who-are-the-fastest-characters)
+9. [Who are the characters with more power?](#9who-are-the-characters-with-more-power)
+10. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](#10what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
 
 # Data Exploratory
 ### Import libraries
