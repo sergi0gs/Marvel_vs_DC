@@ -68,14 +68,28 @@ In this case we are going to use the raw version of github.
 
 
 ### Data shape
-
 ### Information
-
+##### SuperHero.csv
+##### heroes_information_csv
+##### Super_hero_powers.csv
 
 ### Null Values
+##### SuperHero.csv
+##### heroes_information_csv
+##### Super_hero_powers.csv
 
 
 # Data Cleaning
+##### SuperHero.csv
+##### heroes_information_csv
+##### Super_hero_powers.csv
+
+# Data Wrangling
+##### SuperHero.csv
+##### heroes_information_csv
+##### Super_hero_powers.csv
+
+
 # Questions 
 ### 1.How many heroes are there in DC Comics and Marvel Comics?
 ### 2.What is the predominant gender in the characters of DC Comics and Marvel Comics?
