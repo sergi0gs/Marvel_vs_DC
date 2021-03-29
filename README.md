@@ -1,7 +1,7 @@
 # Table of Contents
 - [Introduction](#introduction)
 - [Resources](#resources)
-- [What do we want to know?](#what-do-we-want-to-know)
+- [What do we want to know?](#what-do-we-want-to-know-)
 - [Data Exploratory](#data-exploratory)
   - [Import libraries](#import-libraries)
   - [Read files](#read-files)
