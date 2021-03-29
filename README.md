@@ -62,10 +62,22 @@ We are going to use the next 3 datasets:
 
 # Data Exploratory
 ### Import libraries
+```
+import numpy as np
+import pandas as pd
+import matplotlib.pyplot as plt
+import seaborn as sns
+%matplotlib inline
+
+```
 
 ### Read files
 In this case we are going to use the raw version of github.
-
+```
+superhero = pd.read_csv('https://raw.githubusercontent.com/sergi0gs/Marvel_vs_DC/main/datasets/SuperheroDataset.csv')
+heroes_information = pd.read_csv('https://raw.githubusercontent.com/sergi0gs/Marvel_vs_DC/main/datasets/heroes_information.csv')
+super_hero_powers = pd.read_csv('https://github.com/sergi0gs/Marvel_vs_DC/blob/main/datasets/super_hero_powers.csv')
+```
 
 ### Data shape
 ##### SuperHero.csv
