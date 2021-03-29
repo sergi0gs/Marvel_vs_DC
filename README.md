@@ -68,6 +68,10 @@ In this case we are going to use the raw version of github.
 
 
 ### Data shape
+##### SuperHero.csv
+##### heroes_information_csv
+##### Super_hero_powers.csv
+
 ### Information
 ##### SuperHero.csv
 ##### heroes_information_csv
