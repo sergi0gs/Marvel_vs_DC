@@ -9,7 +9,7 @@
     - [SuperHero.csv](#superherocsv)
     - [heroes_information_csv](#heroes_information_csv)
     - [Super_hero_powers.csv](#super_hero_powerscsv)
-  - [Information](#print-information-about-the-dataframes)
+  - [Information](#information)
     - [SuperHero.csv](#superherocsv-1)
     - [heroes_information_csv](#heroes_information_csv-1)
     - [Super_hero_powers.csv](#super_hero_powerscsv-1)
