@@ -57,13 +57,15 @@ We are going to use the next 3 datasets 👇:
 4. [Which has more Heroes or Villains?](#4which-has-more-heroes-or-villains)
 5. [Realize a comparative between the character abilites of both comics.](#5realize-a-comparative-between-the-character-abilites-of-both-comics)
 6. [Who are the most intelligent characters?](#6who-are-the-most-intelligent-characters)
-7. [Who are the strongest characters?](#7who-are-the-strongest-characters)
-8. [Who are the fastest characters?](#8who-are-the-fastest-characters)
-9. [Who are the characters with more power?](#9who-are-the-characters-with-more-power)
+7. [Which comic have the strongest characters?](#7who-are-the-strongest-characters)
+8. [Which comic have the fastest characters?](#8who-are-the-fastest-characters)
+9. [Which comic have the characters with more power?](#9who-are-the-characters-with-more-power)
 10. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](#10what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
 
 # Data Exploratory
 ### Import libraries
+💻 Code 👇
+
 ```
 import numpy as np
 import pandas as pd
@@ -72,48 +74,59 @@ import seaborn as sns
 %matplotlib inline
 
 ```
+--------------------------------------------------------
 
 ### Read files
 In this case we are going to use the raw version of github.
+💻 Code 👇
 ```
 superhero = pd.read_csv('https://raw.githubusercontent.com/sergi0gs/Marvel_vs_DC/main/datasets/SuperheroDataset.csv')
 heroes_information = pd.read_csv('https://raw.githubusercontent.com/sergi0gs/Marvel_vs_DC/main/datasets/heroes_information.csv')
 super_hero_powers = pd.read_csv('https://github.com/sergi0gs/Marvel_vs_DC/blob/main/datasets/super_hero_powers.csv')
 ```
+--------------------------------------------------------
 
 ### Data shape
 ##### SuperHero.csv
+💻 Code 👇
 ```
 superhero.shape
 ```
+--------------------------------------------------------
 
 ![superhero_shape](https://user-images.githubusercontent.com/71573671/112911245-9dc23780-90ba-11eb-9091-b8f43e1de6e1.PNG)
 
 ##### heroes_information_csv
+💻
 ```
 heroes_information.shape
 ```
+--------------------------------------------------------
 
 ![heroes_information_shape](https://user-images.githubusercontent.com/71573671/112911418-fe517480-90ba-11eb-8fc2-9252b53a4d25.PNG)
 
 
 ##### Super_hero_powers.csv
+💻 Code 👇
 ```
 super_hero_powers.shape
 ```
+--------------------------------------------------------
 
 ![super_hero_powers_shape](https://user-images.githubusercontent.com/71573671/112911460-13c69e80-90bb-11eb-8f3c-5c2ffc06c283.PNG)
 
 
 ### Information
 ##### SuperHero.csv
+💻 Code 👇
 ```
 superhero.info()
 ```
+--------------------------------------------------------
 
 ![superhero_info](https://user-images.githubusercontent.com/71573671/112911953-11187900-90bc-11eb-8403-20dc4fc3d5b9.png)
 
-We see that "Skin color" have very little information. It's important notice that because we are going to do something with it later.
+👀 We see that "Skin color" have very little information. It's important notice that because we are going to do something with it later.
 
 
 ##### heroes_information_csv
