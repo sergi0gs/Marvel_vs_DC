@@ -21,7 +21,7 @@
   - [SuperHero.csv](#superherocsv-3)
   - [heroes_information_csv](#heroes_information_csv-3)
   - [Super_hero_powers.csv](#super_hero_powerscsv-3)
-- [Data Wrangling]()
+- [Data Wrangling](#data-wrangling)
   - [SuperHero.csv](#superherocsv-4)
   - [heroes_information_csv](#heroes_information_csv-4)
   - [Super_hero_powers.csv](#super_hero_powerscsv-4)
