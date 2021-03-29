@@ -81,11 +81,39 @@ super_hero_powers = pd.read_csv('https://github.com/sergi0gs/Marvel_vs_DC/blob/m
 
 ### Data shape
 ##### SuperHero.csv
+```
+superhero.shape
+```
+
+![superhero_shape](https://user-images.githubusercontent.com/71573671/112911245-9dc23780-90ba-11eb-9091-b8f43e1de6e1.PNG)
+
 ##### heroes_information_csv
+```
+heroes_information.shape
+```
+
+![heroes_information_shape](https://user-images.githubusercontent.com/71573671/112911418-fe517480-90ba-11eb-8fc2-9252b53a4d25.PNG)
+
+
 ##### Super_hero_powers.csv
+```
+super_hero_powers.shape
+```
+
+![super_hero_powers_shape](https://user-images.githubusercontent.com/71573671/112911460-13c69e80-90bb-11eb-8f3c-5c2ffc06c283.PNG)
+
 
 ### Information
 ##### SuperHero.csv
+```
+superhero.info()
+```
+
+![superhero_info](https://user-images.githubusercontent.com/71573671/112911953-11187900-90bc-11eb-8403-20dc4fc3d5b9.png)
+
+We see that "Skin color" have very little information. It's important notice that because we are going to do something with it later.
+
+
 ##### heroes_information_csv
 ##### Super_hero_powers.csv
 
