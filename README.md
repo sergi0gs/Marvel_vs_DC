@@ -17,14 +17,18 @@
     - [SuperHero.csv](#superherocsv-2)
     - [heroes_information_csv](#heroes_information_csv-2)
     - [Super_hero_powers.csv](#super_hero_powerscsv-2) 
+  - [Duplicates](#duplicates)
+    - [SuperHero.csv](#superherocsv-3)
+    - [heroes_information_csv](#heroes_information_csv-3)
+    - [Super_hero_powers.csv](#super_hero_powerscsv-3)
 - [Data Cleaning](#data-cleaning)
-  - [SuperHero.csv](#superherocsv-3)
-  - [heroes_information_csv](#heroes_information_csv-3)
-  - [Super_hero_powers.csv](#super_hero_powerscsv-3)
-- [Data Wrangling](#data-wrangling)
   - [SuperHero.csv](#superherocsv-4)
   - [heroes_information_csv](#heroes_information_csv-4)
   - [Super_hero_powers.csv](#super_hero_powerscsv-4)
+- [Data Wrangling](#data-wrangling)
+  - [SuperHero.csv](#superherocsv-5)
+  - [heroes_information_csv](#heroes_information_csv-5)
+  - [Super_hero_powers.csv](#super_hero_powerscsv-5)
 - [Questions](#questions)
 
 # Introduction
@@ -169,7 +173,7 @@ super_hero_powers.sample(5)
 
 ![super_hero_powers_sample](https://user-images.githubusercontent.com/71573671/113388110-3a9f0200-9353-11eb-919b-ce6fa17eb71a.PNG)
 
-- We can see that there are 168 columns. This is the reasons why we cannot see it so probably we are going to transform it in a long data format to solve it later.
+- We can see that there are 168 columns. This is the reasons why we could not see it before so probably we are going to transform it in a long data format to solve it later.
 --------------------------------------------------------
 
 ### Null Values
