@@ -88,38 +88,38 @@ super_hero_powers = pd.read_csv('https://github.com/sergi0gs/Marvel_vs_DC/blob/m
 ```
 superhero.shape
 ```
---------------------------------------------------------
 
 ![superhero_shape](https://user-images.githubusercontent.com/71573671/112911245-9dc23780-90ba-11eb-9091-b8f43e1de6e1.PNG)
+
+--------------------------------------------------------
 
 ##### heroes_information_csv
 ```
 heroes_information.shape
 ```
---------------------------------------------------------
 
 ![heroes_information_shape](https://user-images.githubusercontent.com/71573671/112911418-fe517480-90ba-11eb-8fc2-9252b53a4d25.PNG)
 
+--------------------------------------------------------
 
 ##### Super_hero_powers.csv
 ```
 super_hero_powers.shape
 ```
---------------------------------------------------------
 
 ![super_hero_powers_shape](https://user-images.githubusercontent.com/71573671/112911460-13c69e80-90bb-11eb-8f3c-5c2ffc06c283.PNG)
 
+--------------------------------------------------------
 
 ### Information
 ##### SuperHero.csv
 ```
 superhero.info()
 ```
---------------------------------------------------------
 
 ![superhero_info](https://user-images.githubusercontent.com/71573671/112911953-11187900-90bc-11eb-8403-20dc4fc3d5b9.png)
 
-👀 We see that "Skin color" have very little information. It's important notice that because we are going to do something with it later.
+- We see that "Skin color" have very little information. It's important notice that because we are going to do something with it later.
 
 Visualize 5 random rows
 ```
@@ -128,9 +128,9 @@ superhero.sample(5)
 
 ![superhero_sample](https://user-images.githubusercontent.com/71573671/113387005-09bdcd80-9351-11eb-9dd9-25f313675e15.png)
 
---------------------------------------------------------
+- We can see that there are some columns that we probably we are not going to use so we must remember this information to use it later. Also we can not see all the columns because there are a lot of its.
 
-👀 We can see that there are some columns that we probably we are not going to use so we must remember this information to use it later. Also we can not see all the columns because there are a lot of its.
+--------------------------------------------------------
 
 ##### heroes_information_csv
 ```
@@ -139,9 +139,9 @@ heroes_information.info()
 
 ![heroes_information_info](https://user-images.githubusercontent.com/71573671/113387386-d891cd00-9351-11eb-91aa-f705c5c752a8.PNG)
 
-It is Okey👆.
+- It is Okey👆.
 
-Visualize 5 random rows 👇
+Visualize 5 random rows.
 
 ```
 heroes_information.sample(5)
@@ -149,7 +149,7 @@ heroes_information.sample(5)
 
 ![heroes_information_sample](https://user-images.githubusercontent.com/71573671/113387554-260e3a00-9352-11eb-9d5b-02d0215f2aaf.PNG)
 
-It is Okey👆.
+- We see that "Unnamed: 0" is unnecessary so probably we are going to do drop it later.
 
 --------------------------------------------------------
 
@@ -160,20 +160,89 @@ super_hero_powers.info()
 
 ![super_hero_powers_info](https://user-images.githubusercontent.com/71573671/113387724-7c7b7880-9352-11eb-8dc6-d76ff8c02cd7.PNG)
 
-Notice that we cannot see the information about it because it have a lot of columns so we are going to see 5 rows of it to understand it better
+- Notice that we cannot see the information about it because it have a lot of columns so we are going to see 5 rows of it to understand it better
+
+Visualize 5 random rows.
 ```
 super_hero_powers.sample(5)
 ```
 
 ![super_hero_powers_sample](https://user-images.githubusercontent.com/71573671/113388110-3a9f0200-9353-11eb-919b-ce6fa17eb71a.PNG)
 
-👀 We can see that there are 168 columns. This is the reasons why we cannot see it so probably we are going to transform it in a long data format to solve it later.
+- We can see that there are 168 columns. This is the reasons why we cannot see it so probably we are going to transform it in a long data format to solve it later.
+--------------------------------------------------------
 
 ### Null Values
 ##### SuperHero.csv
-##### heroes_information_csv
-##### Super_hero_powers.csv
+```
+superhero.isnull().sum()
+```
 
+![superhero_isnull_sum](https://user-images.githubusercontent.com/71573671/113388732-61116d00-9354-11eb-8af9-96bd51894bd2.PNG)
+
+- We can see better about null values. In this case there are 669 null values in "Skin color" so we definetly are going to drop it later.
+--------------------------------------------------------
+
+##### heroes_information_csv
+```
+heroes_information.isnull().sum()
+```
+
+![heroes_information_isnull](https://user-images.githubusercontent.com/71573671/113388973-d1b88980-9354-11eb-81b6-162f82d43d36.PNG)
+
+- It is Okey.
+
+--------------------------------------------------------
+
+##### Super_hero_powers.csv
+```
+super_hero_powers.isnull().sum()
+```
+![super_hero_powers_isnull](https://user-images.githubusercontent.com/71573671/113389117-15ab8e80-9355-11eb-9122-f0dad72071b0.PNG)
+
+- There are a lot of columns so we are goint to calcule the sum() about the last sum().
+
+```
+super_hero_powers.isnull().sum().sum()
+```
+
+![super_hero_powers_isnull_sum_sum](https://user-images.githubusercontent.com/71573671/113389539-d6ca0880-9355-11eb-99ff-ac4595ccd349.PNG)
+
+- There are not any null value.
+
+--------------------------------------------------------
+
+### Duplicates
+##### SuperHero.csv
+```
+superhero.duplicated().sum()
+```
+
+![superhero_duplicate](https://user-images.githubusercontent.com/71573671/113389744-2c9eb080-9356-11eb-814a-b10068519df9.PNG)
+
+- There are not any duplicate row.
+
+--------------------------------------------------------
+
+##### heroes_information_csv
+```
+heroes_information.duplicated().sum()
+```
+
+![heroes_information_duplicate](https://user-images.githubusercontent.com/71573671/113389922-6ff91f00-9356-11eb-811b-4278d117cc0b.PNG)
+
+- There are not any duplicate row.
+--------------------------------------------------------
+
+##### Super_hero_powers.csv
+```
+super_hero_powers.duplicated().sum()
+```
+
+![super_hero_powers_duplicate](https://user-images.githubusercontent.com/71573671/113390081-a767cb80-9356-11eb-80ae-19767e5f894e.PNG)
+
+- There are not any duplicate row.
+--------------------------------------------------------
 
 # Data Cleaning
 ##### SuperHero.csv
