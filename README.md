@@ -64,8 +64,6 @@ We are going to use the next 3 datasets 👇:
 
 # Data Exploratory
 ### Import libraries
-💻 Code 👇
-
 ```
 import numpy as np
 import pandas as pd
@@ -78,7 +76,6 @@ import seaborn as sns
 
 ### Read files
 In this case we are going to use the raw version of github.
-💻 Code 👇
 ```
 superhero = pd.read_csv('https://raw.githubusercontent.com/sergi0gs/Marvel_vs_DC/main/datasets/SuperheroDataset.csv')
 heroes_information = pd.read_csv('https://raw.githubusercontent.com/sergi0gs/Marvel_vs_DC/main/datasets/heroes_information.csv')
@@ -88,7 +85,6 @@ super_hero_powers = pd.read_csv('https://github.com/sergi0gs/Marvel_vs_DC/blob/m
 
 ### Data shape
 ##### SuperHero.csv
-💻 Code 👇
 ```
 superhero.shape
 ```
@@ -97,7 +93,6 @@ superhero.shape
 ![superhero_shape](https://user-images.githubusercontent.com/71573671/112911245-9dc23780-90ba-11eb-9091-b8f43e1de6e1.PNG)
 
 ##### heroes_information_csv
-💻
 ```
 heroes_information.shape
 ```
@@ -107,7 +102,6 @@ heroes_information.shape
 
 
 ##### Super_hero_powers.csv
-💻 Code 👇
 ```
 super_hero_powers.shape
 ```
@@ -118,7 +112,6 @@ super_hero_powers.shape
 
 ### Information
 ##### SuperHero.csv
-💻 Code 👇
 ```
 superhero.info()
 ```
@@ -128,9 +121,53 @@ superhero.info()
 
 👀 We see that "Skin color" have very little information. It's important notice that because we are going to do something with it later.
 
+Visualize 5 random rows
+```
+superhero.sample(5)
+```
+
+![superhero_sample](https://user-images.githubusercontent.com/71573671/113387005-09bdcd80-9351-11eb-9dd9-25f313675e15.png)
+
+--------------------------------------------------------
+
+👀 We can see that there are some columns that we probably we are not going to use so we must remember this information to use it later. Also we can not see all the columns because there are a lot of its.
 
 ##### heroes_information_csv
+```
+heroes_information.info()
+```
+
+![heroes_information_info](https://user-images.githubusercontent.com/71573671/113387386-d891cd00-9351-11eb-91aa-f705c5c752a8.PNG)
+
+It is Okey👆.
+
+Visualize 5 random rows 👇
+
+```
+heroes_information.sample(5)
+```
+
+![heroes_information_sample](https://user-images.githubusercontent.com/71573671/113387554-260e3a00-9352-11eb-9d5b-02d0215f2aaf.PNG)
+
+It is Okey👆.
+
+--------------------------------------------------------
+
 ##### Super_hero_powers.csv
+```
+super_hero_powers.info()
+```
+
+![super_hero_powers_info](https://user-images.githubusercontent.com/71573671/113387724-7c7b7880-9352-11eb-8dc6-d76ff8c02cd7.PNG)
+
+Notice that we cannot see the information about it because it have a lot of columns so we are going to see 5 rows of it to understand it better
+```
+super_hero_powers.sample(5)
+```
+
+![super_hero_powers_sample](https://user-images.githubusercontent.com/71573671/113388110-3a9f0200-9353-11eb-919b-ce6fa17eb71a.PNG)
+
+👀 We can see that there are 168 columns. This is the reasons why we cannot see it so probably we are going to transform it in a long data format to solve it later.
 
 ### Null Values
 ##### SuperHero.csv
