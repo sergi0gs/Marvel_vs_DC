@@ -332,7 +332,7 @@ Remember the last notes:
 - The data format is wide so we must transform it
 - There are not null values and duplicates.
 
-In this case we do not need to clean something, only transform it and then clean.
+In this case we do not need to clean something, only transform it in a longo format and then clean.
 
 # Data Wrangling
 ##### SuperHero.csv
