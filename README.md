@@ -25,10 +25,6 @@
   - [SuperHero.csv](#superherocsv-4)
   - [heroes_information_csv](#heroes_information_csv-4)
   - [Super_hero_powers.csv](#super_hero_powerscsv-4)
-- [Data Wrangling](#data-wrangling)
-  - [SuperHero.csv](#superherocsv-5)
-  - [heroes_information_csv](#heroes_information_csv-5)
-  - [Super_hero_powers.csv](#super_hero_powerscsv-5)
 - [Questions](#questions)
 
 # Introduction
@@ -334,10 +330,6 @@ Remember the last notes:
 
 In this case we do not need to clean something, only transform it in a longo format and then clean.
 
-# Data Wrangling
-##### SuperHero.csv
-##### heroes_information_csv
-##### Super_hero_powers.csv
 
 
 # Questions 
