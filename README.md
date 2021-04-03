@@ -249,9 +249,90 @@ super_hero_powers.duplicated().sum()
 --------------------------------------------------------
 
 # Data Cleaning
+In this part we are going to filter the data about Marvel Comics and DC Comics
 ##### SuperHero.csv
+Remember the last notes:
+- shape: (743,29)
+- Lots of null values in "Skin color"
+- We won't use "Unnamed: 0" and "Unnamed: 0.1"
+- We don't have duplicate rows
+- We can filter with the "Creator" column.
+**Step 1:** Eliminate unnecessary columns like: "Skin color","Unnamed: 0" and "Unnamed: 0.1"
+```
+superhero_clean = superhero.copy(deep = True)
+superhero_clean.drop(columns = ['Unnamed: 0','Unnamed: 0.1','Url','First appearance','Skin color'], inplace=True)
+superhero_clean.head()
+```
+
+![superhero_drop_columns](https://user-images.githubusercontent.com/71573671/113464597-6d98d280-93f3-11eb-843e-028d4db8e59b.PNG)
+
+Remember: 743 rows x 24 columns
+
+**Step 2:** Filter by comics
+Count the number of values in Marvel Comics and DC Comics
+```
+superhero_clean['Creator'].value_counts()
+```
+
+![superhero_value_counts](https://user-images.githubusercontent.com/71573671/113464635-c7999800-93f3-11eb-9d09-34ec8bd45832.png)
+
+The number of Marvel Comics + DC Comics = 614. We must remember it.
+Now, filter by comics.
+```
+filter_sh = (superhero_clean['Creator'] == 'Marvel Comics') | (superhero_clean['Creator'] == 'DC Comics') 
+superhero_clean = superhero_clean[filter_sh]
+superhero_clean
+```
+![superhero_filter](https://user-images.githubusercontent.com/71573671/113464666-25c67b00-93f4-11eb-924c-7ae00985c887.png)
+
+We can see that the number of columns is 614 so we did it well.
+--------------------------------------------------------
+
 ##### heroes_information_csv
+Remember the last notes:
+- Shape: (734,11)
+- "Unnamed: 0" is unnecesarry
+- We can filter with the "Publisher" column.
+- There are not null values and duplicates.
+
+**Step 1:** Eliminate "Unnamed: 0"
+```
+heroes_information_clean = heroes_information.copy(deep = True)
+heroes_information_clean.drop(columns = ['Unnamed: 0'], inplace = True)
+heroes_information_clean
+```
+
+![heores_information_drop](https://user-images.githubusercontent.com/71573671/113464818-290e3680-93f5-11eb-84ec-56229c6a64d3.PNG)
+
+It is Okey.
+
+**Step 2** : Filter by comics.
+```
+filter_hi = (heroes_information_clean['Publisher'] == 'Marvel Comics') | (heroes_information_clean['Publisher'] == 'DC Comics') 
+heroes_information_clean = heroes_information_clean[filter_hi]
+heroes_information_clean
+```
+
+![heores_information_filter](https://user-images.githubusercontent.com/71573671/113464963-3677f080-93f6-11eb-9ec8-6bd36d8fce64.PNG)
+
+**Step 3:** Check the filter
+```
+heroes_information_clean['Publisher'].unique()
+```
+
+![heores_information_check_filter](https://user-images.githubusercontent.com/71573671/113464981-5c04fa00-93f6-11eb-9279-8cb036fb687d.PNG)
+
+It is Okey.
+
+--------------------------------------------------------
+
 ##### Super_hero_powers.csv
+Remember the last notes:
+- Shape: (667,168)
+- The data format is wide so we must transform it
+- There are not null values and duplicates.
+
+In this case we do not need to clean something, only transform it and then clean.
 
 # Data Wrangling
 ##### SuperHero.csv
