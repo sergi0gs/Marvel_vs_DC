@@ -44,13 +44,13 @@ https://cosmoduende.medium.com/dc-comics-vs-marvel-comics-an%C3%A1lisis-explorat
 You can execute this project in the link 👇: 
 https://colab.research.google.com/drive/10FLK0zI3RWUyMDFuFGhjRH1ImmZWYKKO?authuser=2#scrollTo=JJq8smoyAiU_
 
-# Resources
+# RESOURCES
 We are going to use the next 3 datasets 👇:
 1. [SuperHero.csv](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/datasets/SuperheroDataset.csv)
 2. [heroes_information.csv](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/datasets/heroes_information.csv)
 3. [super_hero_powers.csv](https://github.com/sergi0gs/Marvel_vs_DC/blob/main/datasets/super_hero_powers.csv)
 
-# What do we want to know? ❓❓❓❓
+# WHAT DO WE WANT TO KNOW? ❓❓❓❓
 1. [How many heroes are there in DC Comics and Marvel Comics?](#1how-many-heroes-are-there-in-dc-comics-and-marvel-comics) 
 2. [What is the predominant gender in the characters of DC Comics and Marvel Comics?](#2what-is-the-predominant-gender-in-the-characters-of-dc-comics-and-marvel-comics)
 3. [What is the predominant race in both comics?](#3what-is-the-predominant-race-in-both-comics)
@@ -62,8 +62,8 @@ We are going to use the next 3 datasets 👇:
 9. [Which comic have the characters with more power?](#9who-are-the-characters-with-more-power)
 10. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](#10what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
 
-# Data Exploration
-### Import libraries
+# DATA EXPLORATION
+### IMPORT LIBRARIES
 ```
 import numpy as np
 import pandas as pd
@@ -74,7 +74,7 @@ import seaborn as sns
 ```
 --------------------------------------------------------
 
-### Read files
+### READ FILES
 In this case we are going to use the raw version of github.
 ```
 superhero = pd.read_csv('https://raw.githubusercontent.com/sergi0gs/Marvel_vs_DC/main/datasets/SuperheroDataset.csv')
@@ -83,7 +83,7 @@ super_hero_powers = pd.read_csv('https://github.com/sergi0gs/Marvel_vs_DC/blob/m
 ```
 --------------------------------------------------------
 
-### Data shape
+### DATA SHAPE
 ##### SuperHero.csv
 ```
 superhero.shape
@@ -111,7 +111,7 @@ super_hero_powers.shape
 
 --------------------------------------------------------
 
-### Information
+### INFORMATION
 ##### SuperHero.csv
 ```
 superhero.info()
@@ -172,7 +172,7 @@ super_hero_powers.sample(5)
 - We can see that there are 168 columns. This is the reasons why we could not see it before so probably we are going to transform it in a long data format to solve it later.
 --------------------------------------------------------
 
-### Null Values
+### NULL VALUES
 ##### SuperHero.csv
 ```
 superhero.isnull().sum()
@@ -212,7 +212,7 @@ super_hero_powers.isnull().sum().sum()
 
 --------------------------------------------------------
 
-### Duplicates
+### DUPLICATES
 ##### SuperHero.csv
 ```
 superhero.duplicated().sum()
@@ -244,28 +244,30 @@ super_hero_powers.duplicated().sum()
 - There are not any duplicate row.
 --------------------------------------------------------
 
-# Data Cleaning
+# DATA CLEANING
 In this part we are going to filter the data about Marvel Comics and DC Comics
 ##### SuperHero.csv
 Remember the last notes:
 - shape: (743,29)
 - Lots of null values in "Skin color"
-- We won't use "Unnamed: 0" and "Unnamed: 0.1"
+- We won't use some columns
 - We don't have duplicate rows
 - We can filter with the "Creator" column.
-**Step 1:** Eliminate unnecessary columns like: "Skin color","Unnamed: 0" and "Unnamed: 0.1"
+- 
+**Step 1:** Eliminate unnecessary columns like: "Skin color","Unnamed: 0", "Unnamed: 0.1",'Url','Full name,'Alter Egos','Aliases','Place of birth','Eye color','Hair color','Occupation','Base','Team Affiliation','Relatives'
 ```
 superhero_clean = superhero.copy(deep = True)
-superhero_clean.drop(columns = ['Unnamed: 0','Unnamed: 0.1','Url','First appearance','Skin color'], inplace=True)
-superhero_clean.head()
+superhero_clean.drop(columns = ['Skin color','Unnamed: 0', 'Unnamed: 0.1','Url','Full name','Alter Egos','Aliases',
+                                'Place of birth','Height','Weight','Eye color','Hair color','Occupation','Base','Team Affiliation','Relatives','First appearance'], inplace=True)
+superhero_clean
 ```
 
-![superhero_drop_columns](https://user-images.githubusercontent.com/71573671/113464597-6d98d280-93f3-11eb-843e-028d4db8e59b.PNG)
+![super_hero_clean_1](https://user-images.githubusercontent.com/71573671/113637000-361b6780-9639-11eb-9a37-471a7c19d131.PNG)
 
-Remember: 743 rows x 24 columns
+Remember: 743 rows x 12 columns
 
-**Step 2:** Filter by comics
-Count the number of values in Marvel Comics and DC Comics
+**Step 2:** Count the number of values in Marvel Comics and DC Comics
+
 ```
 superhero_clean['Creator'].value_counts()
 ```
@@ -273,13 +275,15 @@ superhero_clean['Creator'].value_counts()
 ![superhero_value_counts](https://user-images.githubusercontent.com/71573671/113464635-c7999800-93f3-11eb-9d09-34ec8bd45832.png)
 
 The number of Marvel Comics + DC Comics = 614. We must remember it.
-Now, filter by comics.
+
+**Step 3: filter by comics.
 ```
 filter_sh = (superhero_clean['Creator'] == 'Marvel Comics') | (superhero_clean['Creator'] == 'DC Comics') 
 superhero_clean = superhero_clean[filter_sh]
 superhero_clean
 ```
-![superhero_filter](https://user-images.githubusercontent.com/71573671/113464666-25c67b00-93f4-11eb-924c-7ae00985c887.png)
+
+![superhero_filter](https://user-images.githubusercontent.com/71573671/113637234-b8a42700-9639-11eb-8b45-de046ca6a0b7.PNG)
 
 We can see that the number of columns is 614 so we did it well.
 --------------------------------------------------------
@@ -291,14 +295,14 @@ Remember the last notes:
 - We can filter with the "Publisher" column.
 - There are not null values and duplicates.
 
-**Step 1:** Eliminate "Unnamed: 0"
+**Step 1:** Eliminate 'Unnamed: 0','Hair color','Height','Skin color','Height','Weight'
 ```
 heroes_information_clean = heroes_information.copy(deep = True)
-heroes_information_clean.drop(columns = ['Unnamed: 0'], inplace = True)
+heroes_information_clean.drop(columns = ['Unnamed: 0','Eye color','Hair color','Height','Skin color','Height','Weight'], inplace = True)
 heroes_information_clean
 ```
 
-![heores_information_drop](https://user-images.githubusercontent.com/71573671/113464818-290e3680-93f5-11eb-84ec-56229c6a64d3.PNG)
+![heros_information_drop](https://user-images.githubusercontent.com/71573671/113637348-fd2fc280-9639-11eb-9cdd-c74c0bfbbd87.PNG)
 
 It is Okey.
 
@@ -309,7 +313,7 @@ heroes_information_clean = heroes_information_clean[filter_hi]
 heroes_information_clean
 ```
 
-![heores_information_filter](https://user-images.githubusercontent.com/71573671/113464963-3677f080-93f6-11eb-9ec8-6bd36d8fce64.PNG)
+![heros_information_filter](https://user-images.githubusercontent.com/71573671/113637400-20f30880-963a-11eb-85ca-87f56b9d35e2.PNG)
 
 **Step 3:** Check the filter
 ```
@@ -328,13 +332,277 @@ Remember the last notes:
 - The data format is wide so we must transform it
 - There are not null values and duplicates.
 
-In this case we do not need to clean something, only transform it in a longo format and then clean.
+We need to transform the data in a long format to visualize it better.
+
+**Step 1:** Obtain all the columns as a list
+```
+super_hero_powers_clean = super_hero_powers.copy(deep = True)
+shpc_columns = list(super_hero_powers_clean.columns)
+shpc_columns
+```
+
+**Step 2:** Eliminate the first value
+```
+shpc_columns.remove('hero_names')
+shpc_columns
+```
+**Step 3:** Melt the data to transform it to a long format
+```
+sphc_melt = pd.melt(super_hero_powers_clean, id_vars='hero_names',value_vars = shpc_columns)
+sphc_melt
+```
+
+![super_hero_power_melt](https://user-images.githubusercontent.com/71573671/113637563-7f1feb80-963a-11eb-85d1-09e5d8efdb0f.PNG)
+
+**Step 4:** Filter with True Value
+```
+filter_sphc = sphc_melt['value'] == True
+sphc_melt = sphc_melt[filter_sphc]
+sphc_melt
+```
+
+![super_hero_power_melt_true](https://user-images.githubusercontent.com/71573671/113637625-abd40300-963a-11eb-90f7-1a4d4ca8dac0.PNG)
+
+New shape: (5874,3)
+
+**Step 5:** Group by "hero_names"
+```
+sphc_melt = sphc_melt.groupby('hero_names')['variable'].apply(list).reset_index()
+sphc_melt
+```
+
+![super_hero_power_groupby](https://user-images.githubusercontent.com/71573671/113637689-d920b100-963a-11eb-9033-be81bf30175a.PNG)
+
+New shape: (667,2)
+
+**Step 6:** Change name columns "variable" to "super_power"
+```
+sphc_melt.rename(columns={'variable':'super_powers'},inplace=True)
+sphc_melt
+```
+
+![super_hero_power_groupby_rename](https://user-images.githubusercontent.com/71573671/113637774-05d4c880-963b-11eb-95da-6f3d390abd1d.PNG)
+
+--------------------------------------------------------
+
+### CROSS THE DATAFRAMES IN ONLY ONE
+#### Join SuperHero and Heroes information
+Left: SuperHero (614 rows)
+
+Right: heroes_information (603 rows)
+
+Use Left Join because superhero_clean have more rows
+
+```
+data_join = pd.merge(superhero_clean, heroes_information_clean, how = 'left', left_on= 'Name', right_on= 'name')
+data_join
+```
+
+![join_sh_hi](https://user-images.githubusercontent.com/71573671/113638135-c3f85200-963b-11eb-931a-2df06460fb10.PNG)
+
+#### Check null values and drop unnecessary columns
+```
+data_join.isnull().sum()
+```
+
+![join_null_values](https://user-images.githubusercontent.com/71573671/113638215-f3a75a00-963b-11eb-86c5-251ec6f4ddb9.PNG)
+
+Drop: 'name','Gender_y','Race_y','Publisher','Alignment_y'
+```
+data_join.drop(columns=['name','Gender_y','Race_y','Publisher','Alignment_y'], inplace=True)
+data_join
+```
+
+![join_sh_hi_drop](https://user-images.githubusercontent.com/71573671/113638308-2a7d7000-963c-11eb-9ca6-139bc26af20d.PNG)
+
+Change the name of columns with "_x" in its names.
+```
+data_join.rename(columns={'Alignment_x':'Alignment','Gender_x':'Gender','Race_x':'Race'}, inplace= True)
+data_join
+```
+
+--------------------------------------------------------
+
+#### Left join between "data_join" and "super_hero_powers_clean"
+
+Left: data_join (653 rows)
+
+Right: shpc_melt (667 rows)
+
+```
+data_join_2 = pd.merge(data_join,sphc_melt,how='left',left_on='Name',right_on='hero_names')
+data_join_2
+```
+
+![join_2](https://user-images.githubusercontent.com/71573671/113638456-821bdb80-963c-11eb-9aab-45e4c417db6d.PNG)
 
 
+Check null values and drop unnecessary columns
+```
+data_join_2.isnull().sum()
+```
+
+![join_2_null_values](https://user-images.githubusercontent.com/71573671/113638534-b0012000-963c-11eb-8d29-7fa41a851f66.PNG)
+
+Compare between Name and null values of hero_names
+```
+data_join_2[data_join_2['hero_names'].isnull()]
+```
+
+We can see that there 89 rows of Null values in the columns "hero_names", but it is the opposite in the column "Name" so we are going to Drop the column "hero_names"
+```
+data_join_2.drop(columns=['hero_names'], inplace = True)
+data_join_2
+```
+
+![join_2_null__drop](https://user-images.githubusercontent.com/71573671/113638801-50efdb00-963d-11eb-901b-6b5ce6f2c412.PNG)
+
+Replace null values of "super_powers" by a "Empty"
+```
+data_join_2.fillna(data_join_2.median(),inplace = True)
+data_join_2
+```
+Check null values
+```
+data_join_2.isnull().sum()
+```
+
+![join_2_null_fillna_num](https://user-images.githubusercontent.com/71573671/113638945-af1cbe00-963d-11eb-9b76-1e370c5c2b4a.PNG)
+
+The replace was ok.
+
+Now, change null values of superpowers for "Empty"
+```
+data_join_2.fillna("Empty",inplace = True)
+data_join_2
+```
+
+Check null values
+
+```
+data_join_2.isnull().sum()
+```
+
+![join_2_null_values_ok](https://user-images.githubusercontent.com/71573671/113639137-1c305380-963e-11eb-980f-42a5c47cfa7e.PNG)
+
+
+![join_2_null_fillna_category](https://user-images.githubusercontent.com/71573671/113639074-002cb200-963e-11eb-8043-6dedf9d83158.PNG)
+
+--------------------------------------------------------
+
+### OUR FINAL DATAFRAME
+Make a copy of "data_join_2"
+```
+final_df = data_join_2.copy(deep=True)
+final_df
+```
 
 # Questions 
 ### 1.How many heroes are there in DC Comics and Marvel Comics?
+**Step 1:** Use Column "Creator"
+```
+q1 = final_df['Creator']
+q1.value_counts()
+```
+**Step 2:** Plot
+```
+fig,ax = plt.subplots()
+ax.bar(q1.value_counts().index, q1.value_counts())
+ax.set_title('Characters by comics')
+ax.set_xlabel('Comic')
+ax.set_ylabel('Nro.')
+
+plt.show()
+```
+
+![q1_plot](https://user-images.githubusercontent.com/71573671/113639338-8b0dac80-963e-11eb-9d3f-c9a8d46dd715.png)
+
+
+
 ### 2.What is the predominant gender in the characters of DC Comics and Marvel Comics?
+**Step 1:** Use only "Creator" and "Gender" columns
+```
+q2 = final_df.loc[:,['Creator','Gender']]
+q2
+```
+**Step 2:** Check the value_counts()
+```
+q2.value_counts()
+```
+
+![q2_value_counts](https://user-images.githubusercontent.com/71573671/113639421-c4461c80-963e-11eb-89c5-af989fbb6cb8.PNG)
+
+**Step 3:** We see that there are 28 values whit this 👉 ' - '. It means that there are characters which can not be considered a Gender. Remember that the Gender depends of the Race so in order to not confused you we are going to change it by 'Without Gender"
+```
+q2.replace({'-':'Without Gender'}, inplace=True)
+q2_values = q2.value_counts()
+q2_values= q2_values.reset_index()
+q2_values
+```
+
+![q2_new_df](https://user-images.githubusercontent.com/71573671/113639493-e93a8f80-963e-11eb-8ce6-f13b0e7804b2.PNG)
+
+**Step 4:** Change '0' by 'Values'
+```
+q2_values.rename(columns={0:'Values'},inplace = True)
+q2_values
+```
+
+**Step 5:** Create a Pivot Table:
+
+values='Values.
+
+index='Creator'.
+
+columns='Gender'
+```
+q2_pivot_table = q2_values.pivot_table(values='Values',index='Creator',columns='Gender')
+q2_pivot_table
+```
+
+![q2_pivot_table](https://user-images.githubusercontent.com/71573671/113639606-299a0d80-963f-11eb-82a2-9f480e9a9abf.PNG)
+
+**Step 6:** Plot the Pivot Table:
+```
+labels = list(q2_pivot_table.index)
+female_means = list(q2_pivot_table['Female'])
+male_means = list(q2_pivot_table['Male'])
+without_gender_means = list(q2_pivot_table['Without Gender'])
+
+x=np.arange(len(labels))
+width=0.2
+
+fig, ax = plt.subplots()
+
+female_bar = ax.bar(x-width/2 , female_means, width, label = 'Female')
+male_bar = ax.bar(x+width/2, male_means ,width, label = 'Male')
+without_gender_bar = ax.bar(x+3*(width/2), without_gender_means ,width, label = 'Without Gender')
+
+ax.set_title('Predominant Gender by Comics')
+ax.set_xlabel('Comic')
+ax.set_ylabel('Number')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+def autolabel(bar):
+  width=0.2
+  for p in ax.patches:
+      ax.annotate(str(p.get_height()), (p.get_x()+0.05, p.get_height()))
+    
+autolabel(female_bar)
+autolabel(male_bar)
+
+fig.tight_layout()
+plt.show()
+```
+
+![q2_plot](https://user-images.githubusercontent.com/71573671/113639661-48989f80-963f-11eb-8418-5e698ea0b19f.png)
+
+
+
+
+
 ### 3.What is the predominant race in both comics?
 ### 4.Which has more Heroes or Villains?
 ### 5.Realize a comparative between the character abilites of both comics.
