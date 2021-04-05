@@ -2,7 +2,7 @@
 - [Introduction](#introduction)
 - [Resources](#resources)
 - [What do we want to know?](#what-do-we-want-to-know-)
-- [Data Exploratory](#data-exploratory)
+- [Data Exploration](#data-exploration)
   - [Import libraries](#import-libraries)
   - [Read files](#read-files)
   - [Data shape](#data-shape)
@@ -27,7 +27,7 @@
   - [Super_hero_powers.csv](#super_hero_powerscsv-4)
 - [Questions](#questions)
 
-# Introduction
+# INTRODUCTION
 
 In this project we will try to analyse the information about the heroes of Marvel and DC comics 🤩 learning about the different types of techniques that we have in Python to analyse, clean, transform and visualize data 📊
 
@@ -62,7 +62,7 @@ We are going to use the next 3 datasets 👇:
 9. [Which comic have the characters with more power?](#9who-are-the-characters-with-more-power)
 10. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](#10what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
 
-# Data Exploratory
+# Data Exploration
 ### Import libraries
 ```
 import numpy as np
