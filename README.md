@@ -457,7 +457,7 @@ data_join_2
 
 ![join_2_null__drop](https://user-images.githubusercontent.com/71573671/113638801-50efdb00-963d-11eb-901b-6b5ce6f2c412.PNG)
 
-Replace null values of "super_powers" by a "Empty"
+Replace null values of "super_powers" with the median.
 ```
 data_join_2.fillna(data_join_2.median(),inplace = True)
 data_join_2
@@ -477,6 +477,8 @@ data_join_2.fillna("Empty",inplace = True)
 data_join_2
 ```
 
+![join_2_null_fillna_category](https://user-images.githubusercontent.com/71573671/113639074-002cb200-963e-11eb-8043-6dedf9d83158.PNG)
+
 Check null values
 
 ```
@@ -486,8 +488,6 @@ data_join_2.isnull().sum()
 ![join_2_null_values_ok](https://user-images.githubusercontent.com/71573671/113639137-1c305380-963e-11eb-980f-42a5c47cfa7e.PNG)
 
 
-![join_2_null_fillna_category](https://user-images.githubusercontent.com/71573671/113639074-002cb200-963e-11eb-8043-6dedf9d83158.PNG)
-
 --------------------------------------------------------
 
 ### OUR FINAL DATAFRAME
@@ -496,6 +496,7 @@ Make a copy of "data_join_2"
 final_df = data_join_2.copy(deep=True)
 final_df
 ```
+
 
 # Questions 
 ### 1.How many heroes are there in DC Comics and Marvel Comics?
