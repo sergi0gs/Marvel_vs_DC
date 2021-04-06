@@ -26,6 +26,7 @@
   - [heroes_information_csv](#heroes_information_csv-4)
   - [Super_hero_powers.csv](#super_hero_powerscsv-4)
 - [Questions](#questions)
+  - [1.How many heroes are there in DC Comics and Marvel Comics?](#1how-many-heroes-are-there-in-dc-comics-and-marvel-comics)
 
 # INTRODUCTION
 
@@ -505,7 +506,7 @@ final_df
 q1 = final_df['Creator']
 q1.value_counts()
 ```
-**Step 2:** Plot
+#### **Step 2:** Plot
 ```
 fig,ax = plt.subplots()
 ax.bar(q1.value_counts().index, q1.value_counts())
@@ -563,7 +564,7 @@ q2_pivot_table
 
 ![q2_pivot_table](https://user-images.githubusercontent.com/71573671/113639606-299a0d80-963f-11eb-82a2-9f480e9a9abf.PNG)
 
-**Step 6:** Plot the Pivot Table:
+#### **Step 6:** Plot the Pivot Table:
 ```
 labels = list(q2_pivot_table.index)
 female_means = list(q2_pivot_table['Female'])
