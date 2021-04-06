@@ -27,6 +27,10 @@
   - [Super_hero_powers.csv](#super_hero_powerscsv-4)
 - [Questions](#questions)
   - [1.How many heroes are there in DC Comics and Marvel Comics?](#1how-many-heroes-are-there-in-dc-comics-and-marvel-comics)
+    - [Plot](#step-2-plot)
+  - [2.What is the predominant gender in the characters of DC Comics and Marvel Comics?](#2what-is-the-predominant-gender-in-the-characters-of-dc-comics-and-marvel-comics)
+    - [Plot](#step-6-plot-the-pivot-table)
+
 
 # INTRODUCTION
 
