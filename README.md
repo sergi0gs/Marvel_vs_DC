@@ -250,7 +250,7 @@ super_hero_powers.duplicated().sum()
 --------------------------------------------------------
 
 # DATA CLEANING
-In this part we are going to filter the data about Marvel Comics and DC Comics
+In this part we are going to clean and correct the data about Marvel Comics and DC Comics
 ##### SuperHero.csv
 Remember the last notes:
 - shape: (743,29)
@@ -281,7 +281,7 @@ superhero_clean['Creator'].value_counts()
 
 The number of Marvel Comics + DC Comics = 614. We must remember it.
 
-**Step 3: filter by comics.
+**Step 3:** filter by comics.
 ```
 filter_sh = (superhero_clean['Creator'] == 'Marvel Comics') | (superhero_clean['Creator'] == 'DC Comics') 
 superhero_clean = superhero_clean[filter_sh]
