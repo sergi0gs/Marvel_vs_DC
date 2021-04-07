@@ -31,7 +31,7 @@
   - [2.What is the predominant gender in the characters of DC Comics and Marvel Comics?](#2what-is-the-predominant-gender-in-the-characters-of-dc-comics-and-marvel-comics)
     - [Plot](#step-6-plot-the-pivot-table)
   - [3.What is the predominant race in both comics?](#3what-is-the-predominant-race-in-both-comics)
-    - [Plot]
+    - [Plot](#step-5-plot)
 
 # INTRODUCTION
 
