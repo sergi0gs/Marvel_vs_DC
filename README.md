@@ -523,7 +523,7 @@ plt.show()
 
 ![q1_plot](https://user-images.githubusercontent.com/71573671/113639338-8b0dac80-963e-11eb-9d3f-c9a8d46dd715.png)
 
-
+--------------------------------------------------------
 
 ### 2.What is the predominant gender in the characters of DC Comics and Marvel Comics?
 **Step 1:** Use only "Creator" and "Gender" columns
@@ -605,15 +605,85 @@ plt.show()
 
 ![q2_plot](https://user-images.githubusercontent.com/71573671/113639661-48989f80-963f-11eb-8418-5e698ea0b19f.png)
 
-
-
-
+--------------------------------------------------------
 
 ### 3.What is the predominant race in both comics?
+**Step 1:** Use "Creator" and "Race" columns
+```
+q3_df = final_df.loc[:,['Creator','Race']]
+q3_df
+```
+
+![q3](https://user-images.githubusercontent.com/71573671/113937664-2037af00-97bf-11eb-9348-9f262b3f7b13.PNG)
+
+**Step 2:** Replace '-' by 'Without Race' and counts de values.
+```
+q3_df.replace({'-':'Witout Race'}, inplace=True)
+q3_df = q3_df.value_counts().reset_index()
+q3_df
+```
+
+![q3_replace_vc](https://user-images.githubusercontent.com/71573671/113937886-6f7ddf80-97bf-11eb-9019-f432aca7a903.PNG)
+
+**Step 3:** Rename '0' by 'values'
+```
+q3_df.rename(columns={0:'Values'}, inplace=True)
+q3_df
+```
+
+**Step 4:** Filter and separate in two dataframes by comics
+```
+q3_marvel = q3_df[q3_df['Creator'] == 'Marvel Comics']
+q3_dc = q3_df[q3_df['Creator'] == 'DC Comics']
+```
+
+**Step 5:** Plot
+```
+fig, (ax1,ax2) = plt.subplots(1,2)
+fig.set_size_inches(12,10)
+
+ax1_values = list(q3_marvel['Values'])
+ax1_labels = list(q3_marvel['Race'])
+
+sns.barplot(x = ax1_values, y=ax1_labels , ax = ax1, orient = 'h', palette='Blues_d')
+ax1.set_xticks(range(0,200,50))
+
+ax1.set_title('Marvel Race',fontsize=16) 
+
+for text_n, rect in zip(ax1_values, ax1.patches):
+    width = rect.xy
+    width, height = rect.get_width(), rect.get_height()
+    x, y = rect.get_xy() 
+    ax1.text(x = x + width , 
+             y = y + height , 
+             s =text_n)
+
+fig.tight_layout()
+plt.show()
+```
+
+![q3_plot](https://user-images.githubusercontent.com/71573671/113938271-f7fc8000-97bf-11eb-88fe-c4ab1f64cdd8.png)
+
+--------------------------------------------------------
+
 ### 4.Which has more Heroes or Villains?
+
+--------------------------------------------------------
 ### 5.Realize a comparative between the character abilites of both comics.
+
+--------------------------------------------------------
 ### 6.Who are the most intelligent characters?
+
+--------------------------------------------------------
 ### 7.Who are the strongest characters?
+
+--------------------------------------------------------
 ### 8.Who are the fastest characters?
+
+--------------------------------------------------------
 ### 9.Who are the characters with more power?
+
+--------------------------------------------------------
 ### 10.What superpowers predominate in the characters of DC Comics and Marvel Comics?
+
+--------------------------------------------------------
