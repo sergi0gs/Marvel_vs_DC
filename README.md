@@ -663,7 +663,7 @@ fig.tight_layout()
 plt.show()
 ```
 
-![q3_plot](https://user-images.githubusercontent.com/71573671/113938271-f7fc8000-97bf-11eb-88fe-c4ab1f64cdd8.png)
+![q3_plot](https://user-images.githubusercontent.com/71573671/113938860-cb953380-97c0-11eb-91b2-076632c286fb.png)
 
 --------------------------------------------------------
 
