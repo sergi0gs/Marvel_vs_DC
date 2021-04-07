@@ -30,7 +30,8 @@
     - [Plot](#step-2-plot)
   - [2.What is the predominant gender in the characters of DC Comics and Marvel Comics?](#2what-is-the-predominant-gender-in-the-characters-of-dc-comics-and-marvel-comics)
     - [Plot](#step-6-plot-the-pivot-table)
-
+  - [3.What is the predominant race in both comics?](#3what-is-the-predominant-race-in-both-comics)
+    - [Plot]
 
 # INTRODUCTION
 
@@ -637,7 +638,7 @@ q3_marvel = q3_df[q3_df['Creator'] == 'Marvel Comics']
 q3_dc = q3_df[q3_df['Creator'] == 'DC Comics']
 ```
 
-**Step 5:** Plot
+#### **Step 5:** Plot
 ```
 fig, (ax1,ax2) = plt.subplots(1,2)
 fig.set_size_inches(12,10)
