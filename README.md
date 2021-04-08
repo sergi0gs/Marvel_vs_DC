@@ -42,12 +42,15 @@ https://www.kaggle.com/thec03u5/complete-superhero-dataset,
 https://www.kaggle.com/claudiodavi/superhero-set
 
 Which was constructed using web scrapping tecniques from the next website 👇: 
+
 https://www.superherodb.com/.
 
 Alse we use as a guide the next example maked in R from 👇: 
+
 https://cosmoduende.medium.com/dc-comics-vs-marvel-comics-an%C3%A1lisis-exploratorio-y-visualizaci%C3%B3n-de-datos-con-r-b0cf565e44e2
 
 You can execute this project in the link 👇: 
+
 https://colab.research.google.com/drive/10FLK0zI3RWUyMDFuFGhjRH1ImmZWYKKO?authuser=2#scrollTo=JJq8smoyAiU_
 
 # RESOURCES
