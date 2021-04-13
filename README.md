@@ -64,11 +64,12 @@ We are going to use the next 3 datasets 👇:
 2. [What is the predominant gender in the characters of DC Comics and Marvel Comics?](#2what-is-the-predominant-gender-in-the-characters-of-dc-comics-and-marvel-comics)
 3. [What is the predominant race in both comics?](#3what-is-the-predominant-race-in-both-comics)
 4. [Which has more Heroes or Villains?](#4which-has-more-heroes-or-villains)
-5. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](#5realize-a-comparative-between-the-character-abilites-of-both-comics)
+5. [Realize a comparative between the character abilites of both comics.](#5-what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
 6. [Who are the most intelligent characters?](#6who-are-the-most-intelligent-characters)
 7. [Which comic have the strongest characters?](#7who-are-the-strongest-characters)
 8. [Which comic have the fastest characters?](#8who-are-the-fastest-characters)
 9. [Which comic have the characters with more power?](#9who-are-the-characters-with-more-power)
+10. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](#10what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
 
 # DATA EXPLORATION
 ### IMPORT LIBRARIES
@@ -671,8 +672,108 @@ plt.show()
 
 ### 4.Which has more Heroes or Villains?
 
+**Step 1:** Use columns "Alignment" and "Creator"
+```
+q4_df = final_df.loc[:,['Creator','Alignment']]
+q4_df
+```
+
+![q4_df](https://user-images.githubusercontent.com/71573671/114604383-6d53cf00-9c5e-11eb-8e1b-6bbae15ffefd.PNG)
+
+**Step 2:** Check the value_counts()
+```
+q4_df.value_counts()
+```
+
+![q4_df_vañue_count](https://user-images.githubusercontent.com/71573671/114604486-8d838e00-9c5e-11eb-931d-fce3f1870a5d.PNG)
+
+It's Ok. Rememer that the values in "blank" in "Creator" is the same of the value which is above of it.
+
+**Step 3:** Replace "good" by "Hero" , "bad" by "Villains" ad '-' by 'Doubt'
+```
+q4_df.replace({'good':'Hero','bad':'Villain','-':'Doubt'}, inplace=True)
+q4_df
+```
+
+**Step 4:** Compare with the value counts. Then make it in a dataframe
+```
+q4_df.value_counts()
+```
+
+![q4_df_replace](https://user-images.githubusercontent.com/71573671/114604760-ece19e00-9c5e-11eb-8358-21b239d7c310.PNG)
+
+```
+q4_df=q4_df.value_counts().reset_index()
+q4_df
+```
+
+![q4_new_df](https://user-images.githubusercontent.com/71573671/114604889-17335b80-9c5f-11eb-9eb1-65ce78b4dc23.PNG)
+
+**Step 5:** Change '0' by 'Values'
+```
+q4_df.rename(columns={0:'Values'}, inplace = True)
+q4_df
+```
+
+**Step 6:** Create a Pivot Table
+
+values='Values.
+
+index='Creator'.
+
+columns='Alignment'
+```
+q4_df = q4_df.pivot_table(index = 'Creator',columns='Alignment',values='Values')
+q4_df
+```
+
+![q4_pivot](https://user-images.githubusercontent.com/71573671/114605052-49dd5400-9c5f-11eb-9340-616283db9a99.PNG)
+
+#### **Step 7:** Plot pivot table
+```
+labels = list(q4_df.index)
+doubt_data = list(q4_df['Doubt'])
+hero_data = list(q4_df['Hero'])
+villain_data = list(q4_df['Villain'])
+neutral_data = list(q4_df['neutral'])
+
+x=np.arange(len(labels))
+width=0.2
+
+fig, ax = plt.subplots()
+doubt_bar = ax.bar(x-width/2, doubt_data, width, label = 'Doubt')
+hero_bar = ax.bar(x+width/2, hero_data, width, label = 'Heroes')
+villian_bar = ax.bar(x-3*(width/2), villain_data, width, label = 'Villains')
+neutral_bar = ax.bar(x-5*(width/2), neutral_data, width, label = 'Neutrals')
+
+ax.set_title('Heroes and Villians')
+ax.set_xlabel('Comics')
+ax.set_ylabel('Values')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+def autolabel(bar):
+  width=0.2
+  for p in ax.patches:
+      ax.annotate(str(p.get_height()), (p.get_x()+0.05, p.get_height()*1.01))
+
+autolabel(doubt_bar)
+autolabel(hero_bar)
+autolabel(villian_bar)
+autolabel(neutral_bar)
+
+fig.tight_layout()
+plt.show
+```
+
+![q4_plot](https://user-images.githubusercontent.com/71573671/114605375-a3458300-9c5f-11eb-9db6-1864d77508b4.png)
+
+
+
+
 --------------------------------------------------------
-### 5. What superpowers predominate in the characters of DC Comics and Marvel Comics?
+### 5.Realize a comparative between the character abilites of both comics.
 
 --------------------------------------------------------
 ### 6.Who are the most intelligent characters?
@@ -687,4 +788,6 @@ plt.show()
 ### 9.Who are the characters with more power?
 
 --------------------------------------------------------
+### 10.What superpowers predominate in the characters of DC Comics and Marvel Comics?
 
+--------------------------------------------------------
