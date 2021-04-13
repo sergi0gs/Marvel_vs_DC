@@ -780,14 +780,234 @@ plt.show
 
 ![q4_plot](https://user-images.githubusercontent.com/71573671/114605375-a3458300-9c5f-11eb-9db6-1864d77508b4.png)
 
-
-
-
 --------------------------------------------------------
 ### 5.Realize a comparative between the character abilites of both comics.
+**Step 1:** Use "Creator" and "super_powers"
+```
+q5_df = final_df.loc[:,['Creator','super_powers']]
+q5_df
+```
+
+![q5_df](https://user-images.githubusercontent.com/71573671/114606437-df2d1800-9c60-11eb-84d8-ae09108e5376.PNG)
+
+**Step 2:** Transform it in a long format
+```
+q5_df = q5_df.explode('super_powers')
+q5_df
+```
+
+![q5_df_long_format](https://user-images.githubusercontent.com/71573671/114606602-156a9780-9c61-11eb-8917-9f5154381753.PNG)
+
+**Step 3:** Verify unique values of "Creator"
+```
+q5_df['Creator'].unique()
+```
+It's Ok.
+
+**Step 4:** Count the values and reset the index
+```
+q5_df = q5_df.value_counts().reset_index()
+q5_df
+```
+
+![q5_df_new_df](https://user-images.githubusercontent.com/71573671/114606754-4d71da80-9c61-11eb-879f-8285844cc149.PNG)
+
+**Step 5:** Rename column 0 by 'Values'
+```
+q5_df.rename(columns={0:'Values'}, inplace = True)
+q5_df
+```
+
+**Step 6:** Filter by comics
+```
+q5_marvel = q5_df[(q5_df['Creator'] == 'Marvel Comics') & (q5_df['Values'] > np.median(q5_df['Values']))]
+q5_dc = q5_df[(q5_df['Creator'] == 'DC Comics') & (q5_df['Values'] > np.median(q5_df['Values']))]
+```
+
+**Step 7:** Plot
+```
+fig, (ax1,ax2) = plt.subplots(1,2)
+fig.set_size_inches(18,17)
+
+# Marvel #
+ax1_values = list(q5_marvel['Values'])
+ax1_labels = list(q5_marvel['super_powers'])
+
+sns.barplot(x = ax1_values, y = ax1_labels, ax = ax1, orient = 'h')
+ax1.set_xticks(range(0,250,50))
+ax1.set_title('Marvel super powers', fontsize = 16)
+
+
+for text, rect in zip(ax1_values, ax1.patches):
+  width, height = rect.get_width(), rect.get_height()
+  x,y = rect.get_xy()
+  ax1.text(x = x+width,
+          y = y+height,
+          s=text)
+
+ax1.set_xlabel('Numbers of characters')
+ax1.set_ylabel('Super Powers')
+  
+# DC #
+ax2_values = list(q5_dc['Values'])
+ax2_labels = list(q5_dc['super_powers'])
+
+sns.barplot(x = ax2_values, y = ax2_labels, ax = ax2, orient = 'h')
+ax2.set_xticks(range(0,250,50))
+ax2.set_title('DC super powers', fontsize = 16)
+
+
+for text_dc, rect_dc in zip(ax2_values, ax2.patches):
+  width_dc, height_dc = rect_dc.get_width(), rect_dc.get_height()
+  x_dc,y_dc = rect_dc.get_xy()
+  ax2.text(x = x_dc + width_dc,
+          y = y_dc + height_dc,
+          s = text_dc)
+
+ax2.set_xlabel('Numbers of characters')
+ax2.set_ylabel('Super Powers')
+      
+fig.tight_layout()
+plt.show()
+```
+
+![q5_plot](https://user-images.githubusercontent.com/71573671/114607376-164ff900-9c62-11eb-8c9f-55f5e24fd823.png)
 
 --------------------------------------------------------
 ### 6.Who are the most intelligent characters?
+**Step 1:** Use the next columns: "Name", "Creator" and "Intelligence".
+```
+q6_df = final_df.loc[:,['Name','Creator','Intelligence']]
+q6_df
+```
+
+![q6_df](https://user-images.githubusercontent.com/71573671/114607656-6a5add80-9c62-11eb-89b1-5c9d128c71db.png)
+
+**Step 2:** Separate by comics and filter with data > 4th quintil
+```
+# Quintil
+q_val = [0,20,40,60,80,100]
+quintiles = np.percentile(q6_df['Intelligence'], q = q_val)
+
+q6_marvel = q6_df[(q6_df['Creator'] == 'Marvel Comics') & (q6_df['Intelligence'] > quintiles[4])]
+q6_dc = q6_df[(q6_df['Creator'] == 'DC Comics') & (q6_df['Intelligence'] > quintiles[4])]
+```
+
+**Step 3:** Plot
+```
+fig, (ax1,ax2) = plt.subplots(1,2)
+fig.set_size_inches(13,10)
+
+def barplot(df,title,x_label,y_label,min_val,max_val,step,ax):
+  ax_labels = list(df['Name'])
+  ax_values = list(df['Intelligence'])
+  sns.barplot(x = ax_values, y = ax_labels, ax = ax, orient='h')
+  ax.set_xticks(range(min_val,max_val,step))
+  ax.set_title(title, fontsize = 16)
+  ax.set_xlabel(x_label)
+  ax.set_ylabel(y_label)
+
+def autolabel(df,ax):
+  ax_labels = list(df['Name'])
+  ax_values = list(df['Intelligence'])
+  for text, rect in zip(ax_values, ax.patches):
+    width, height = rect.get_width(), rect.get_height()
+    x,y = rect.get_xy()
+    ax.text(x = x+width,
+            y = y+height,
+            s=text)
+
+# Marvel
+barplot(q6_marvel,'Marvel','Values','Characters',0,150,20,ax1)
+autolabel(q6_marvel,ax1)
+
+# DC
+barplot(q6_dc,'DC','Values','Characters',0,150,20,ax2)
+autolabel(q6_dc,ax2)
+
+fig.tight_layout()
+plt.show()
+```
+
+![q6_plot_1](https://user-images.githubusercontent.com/71573671/114607805-94ac9b00-9c62-11eb-84b1-89b7f8d53f45.png)
+
+This plot is not enough because there are lots of characters who have 100 points in "Intelligence" so we are going to campare between them with another graphic focus on their comics
+
+**Step 4:** Use column "Creator" and "Intelligence"
+```
+q6_df = q6_df.loc[:,['Creator','Intelligence']]
+q6_df
+```
+
+**Step 5:** Check the value counts of intelligence and make it in a new dataframe.
+```
+q6_df = q6_df.value_counts().reset_index()
+q6_df
+```
+
+**Step 6:** Rename 0 by 'Values'
+```
+q6_df.rename(columns={0:'Values'}, inplace = True)
+q6_df
+```
+
+![q6_df_2](https://user-images.githubusercontent.com/71573671/114608500-611e4080-9c63-11eb-83da-5f7006d104e5.PNG)
+
+**Step 7:** Create a Pivot table to make the plot easier.
+```
+q6_pivot = q6_df.pivot_table(index = 'Creator', columns = 'Intelligence', values = 'Values')
+q6_pivot
+```
+
+**Step 8:** Replace Null values by 0.
+```
+q6_pivot = q6_pivot.fillna(0)
+q6_pivot
+```
+
+![q6_pivot](https://user-images.githubusercontent.com/71573671/114608672-8a3ed100-9c63-11eb-91db-1a430d9981da.PNG)
+
+**Step 9:** Plot
+Star from the column "75" because before it there are very little information.
+```
+q6_pivot = q6_pivot.iloc[:,6:12]
+q6_pivot
+```
+
+code:
+```
+labels = list(q6_pivot.index)
+data_75 = list(q6_pivot[75.0])
+data_80 = list(q6_pivot[80.0])
+data_85 = list(q6_pivot[85.0])
+data_90 = list(q6_pivot[90.0])
+data_95 = list(q6_pivot[95.0])
+data_100 = list(q6_pivot[100.0])
+
+x=np.arange(len(labels))
+width=0.1
+
+fig, ax = plt.subplots()
+bar_75 = ax.bar(x-width/2, data_75, width, label = '75')
+bar_80 = ax.bar(x+width/2, data_80, width, label = '80')
+bar_85 = ax.bar(x-3*(width/2), data_85, width, label = '85')
+bar_90 = ax.bar(x-5*(width/2), data_90, width, label = '90')
+bar_95 = ax.bar(x-7*(width/2), data_95, width, label = '95')
+bar_100 = ax.bar(x-9*(width/2), data_100, width, label = '100')
+
+
+ax.set_title('Comics that has more intelligent characters')
+ax.set_xlabel('Comics')
+ax.set_ylabel('Values')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+fig.tight_layout()
+plt.show
+```
+
+![q6_plto_2](https://user-images.githubusercontent.com/71573671/114608978-e1dd3c80-9c63-11eb-8917-b557abf65291.png)
 
 --------------------------------------------------------
 ### 7.Who are the strongest characters?
