@@ -32,6 +32,18 @@
     - [Plot](#step-6-plot-the-pivot-table)
   - [3.What is the predominant race in both comics?](#3what-is-the-predominant-race-in-both-comics)
     - [Plot](#step-5-plot)
+  - [4.Which has more Heroes or Villains?](#4which-has-more-heroes-or-villains)
+    - [Plot](#step-7-plot-pivot-table)
+  - [5.What superpowers predominate in the characters of DC Comics and Marvel Comics?](#5what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
+    - [Plot]()
+  - [6.Who are the most intelligent characters?](#6who-are-the-most-intelligent-characters)
+    - [Plot]()
+  - [7.Which comic have the strongest characters?](#7who-are-the-strongest-characters)
+    - [Plot]()
+  - [8.Which comic have the fastest characters?](#8who-are-the-fastest-characters)
+     - [Plot]()
+  - [9.Which comic have the characters with more power?](#9who-are-the-characters-with-more-power)
+     - [Plot]()
 
 # INTRODUCTION
 
@@ -64,12 +76,11 @@ We are going to use the next 3 datasets 👇:
 2. [What is the predominant gender in the characters of DC Comics and Marvel Comics?](#2what-is-the-predominant-gender-in-the-characters-of-dc-comics-and-marvel-comics)
 3. [What is the predominant race in both comics?](#3what-is-the-predominant-race-in-both-comics)
 4. [Which has more Heroes or Villains?](#4which-has-more-heroes-or-villains)
-5. [Realize a comparative between the character abilites of both comics.](#5-what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
+5. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](#5what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
 6. [Who are the most intelligent characters?](#6who-are-the-most-intelligent-characters)
 7. [Which comic have the strongest characters?](#7who-are-the-strongest-characters)
 8. [Which comic have the fastest characters?](#8who-are-the-fastest-characters)
 9. [Which comic have the characters with more power?](#9who-are-the-characters-with-more-power)
-10. [What superpowers predominate in the characters of DC Comics and Marvel Comics?](#10what-superpowers-predominate-in-the-characters-of-dc-comics-and-marvel-comics)
 
 # DATA EXPLORATION
 ### IMPORT LIBRARIES
