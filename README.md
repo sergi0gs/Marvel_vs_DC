@@ -48,6 +48,7 @@
   - [9.Which comic have the characters with more power?](#9who-are-the-characters-with-more-power)
      - [Plot](#step-3-plot-3)
      - [Plot 2](#step-9-plot-3)
+  - [Conclusions](#conclusions)
 
 # INTRODUCTION
 
