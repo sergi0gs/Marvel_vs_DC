@@ -1011,14 +1011,395 @@ plt.show
 
 --------------------------------------------------------
 ### 7.Who are the strongest characters?
+**Step 1:** Use the next columns: "Name", "Creator" and "Intelligence".
+```
+q7_df = final_df.loc[:,['Name','Creator','Strength']]
+q7_df
+```
+
+![q7_df](https://user-images.githubusercontent.com/71573671/114632774-fa118380-9c84-11eb-96ce-16d48b7eda76.PNG)
+
+**Step 2:** Separate by comics and filter with data > 4th quintil
+```
+# Quintiles
+q_val = [0,20,40,60,80,100]
+quintiles = np.percentile(q7_df['Strength'], q = q_val)
+
+q7_marvel = q7_df[(q7_df['Creator'] == 'Marvel Comics') & (q7_df['Strength'] > quintiles[4])].fillna(0)
+q7_dc = q7_df[(q7_df['Creator'] == 'DC Comics') & (q7_df['Strength'] > quintiles[4])].fillna(0)
+```
+
+**Step 3:** Plot
+```
+fig, (ax1,ax2) = plt.subplots(1,2)
+fig.set_size_inches(13,17)
+
+def barplot(df,title,x_label,y_label,min_val,max_val,step,ax):
+  ax_labels = list(df['Name'])
+  ax_values = list(df['Strength'])
+  sns.barplot(x = ax_values, y = ax_labels, ax = ax, orient='h')
+  ax.set_xticks(range(min_val,max_val,step))
+  ax.set_title(title, fontsize = 16)
+  ax.set_xlabel(x_label)
+  ax.set_ylabel(y_label)
+
+def autolabel(df,ax):
+  ax_labels = list(df['Name'])
+  ax_values = list(df['Strength'])
+  for text, rect in zip(ax_values, ax.patches):
+    width, height = rect.get_width(), rect.get_height()
+    x,y = rect.get_xy()
+    ax.text(x = x+width,
+            y = y+height,
+            s=text)
+
+# Marvel
+barplot(q7_marvel,'Marvel','Values','Characters',0,150,20,ax1)
+autolabel(q7_marvel,ax1)
+
+# DC
+barplot(q7_dc,'DC','Values','Characters',0,150,20,ax2)
+autolabel(q7_dc,ax2)
+
+fig.tight_layout()
+plt.show()
+```
+
+![q7_df_plot_1](https://user-images.githubusercontent.com/71573671/114632921-32b15d00-9c85-11eb-9a1f-2aca90fc6110.PNG)
+
+This plot is not enough because there are lots of characters who have 100 points in "Strength" so we are going to campare between them with another graphic focus on their comics
+
+**Step 4:** Use "Creator" and "Strength"
+```
+q7_df = q7_df.loc[:,['Creator','Strength']]
+q7_df
+```
+
+![q7_df_2](https://user-images.githubusercontent.com/71573671/114632993-5e344780-9c85-11eb-9f02-d19ac2858682.PNG)
+
+**Step 5:** Check the value counts of strength and make it in a new dataframe
+```
+q7_df = q7_df.value_counts().reset_index()
+q7_df
+```
+
+**Step 6:** Rename 0 by 'Values'
+```
+q7_df.rename(columns={0:'Values'}, inplace = True)
+q7_df = q7_df[q7_df['Values']>np.median(q7_df['Values'])] 
+q7_df
+```
+
+![q7_rename](https://user-images.githubusercontent.com/71573671/114633100-90de4000-9c85-11eb-899b-9397d2396e88.PNG)
+
+**Step 7:** Create a Pivot table to make the plot easier.
+```
+q7_pivot = q7_df.pivot_table(index = 'Creator', columns = 'Strength', values = 'Values')
+q7_pivot
+```
+
+**Step 8:** Replace Null values by 0.
+```
+q7_pivot = q7_pivot.fillna(0)
+q7_pivot
+```
+
+![q7_pivot](https://user-images.githubusercontent.com/71573671/114633466-22e64880-9c86-11eb-807b-bb0e2fa23e07.PNG)
+
+**Step 9:** Plot
+```
+labels = list(q7_pivot.index)
+
+x=np.arange(len(labels))
+width=0.05
+
+def plot(df,column_i, x , width, label, count):
+  data = list(df[column_i])
+  bar = ax.bar(x-width/2 + count*width, data, width, label = label)
+
+fig, ax = plt.subplots()
+fig.set_size_inches(10,6)
+count = 0
+for column_i in q7_pivot.columns:
+  plot(q7_pivot, column_i, x, width, str(column_i), count)
+  count += 1
+
+ax.set_title('Comics that has the stronger characters')
+ax.set_xlabel('Comics')
+ax.set_ylabel('Values')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+fig.tight_layout()
+plt.show
+```
+
+![q7_plot](https://user-images.githubusercontent.com/71573671/114633511-3d202680-9c86-11eb-985d-0d6c71e5d00a.png)
 
 --------------------------------------------------------
 ### 8.Who are the fastest characters?
+**Step 1:** Use the next columns: "Name", "Creator" and "Speed".
+```
+q8_df = final_df.loc[:,['Name','Creator','Speed']]
+q8_df
+```
+
+![q8_df](https://user-images.githubusercontent.com/71573671/114633558-57f29b00-9c86-11eb-9fd2-8f292ee4f533.PNG)
+
+**Step 2:** Separate by comics and filter with data > 4th quintil
+```
+q_val = [0,20,40,60,80,100]
+quintiles = np.percentile(q8_df['Speed'], q = q_val)
+
+q8_marvel = q8_df[(q8_df['Creator'] == 'Marvel Comics') & (q8_df['Speed'] > quintiles[4])].fillna(0)
+q8_dc = q8_df[(q8_df['Creator'] == 'DC Comics') & (q8_df['Speed'] > quintiles[4])].fillna(0)
+```
+
+**Step 3:** Plot
+```
+fig, (ax1,ax2) = plt.subplots(1,2)
+fig.set_size_inches(13,17)
+
+def barplot(df,title,x_label,y_label,min_val,max_val,step,ax):
+  ax_labels = list(df['Name'])
+  ax_values = list(df['Speed'])
+  sns.barplot(x = ax_values, y = ax_labels, ax = ax, orient='h')
+  ax.set_xticks(range(min_val,max_val,step))
+  ax.set_title(title, fontsize = 16)
+  ax.set_xlabel(x_label)
+  ax.set_ylabel(y_label)
+
+def autolabel(df,ax):
+  ax_labels = list(df['Name'])
+  ax_values = list(df['Speed'])
+  for text, rect in zip(ax_values, ax.patches):
+    width, height = rect.get_width(), rect.get_height()
+    x,y = rect.get_xy()
+    ax.text(x = x+width,
+            y = y+height,
+            s=text)
+
+# Marvel
+barplot(q8_marvel,'Marvel','Values','Characters',0,150,20,ax1)
+autolabel(q8_marvel,ax1)
+
+# DC
+barplot(q8_dc,'DC','Values','Characters',0,150,20,ax2)
+autolabel(q8_dc,ax2)
+
+fig.tight_layout()
+plt.show()
+```
+
+![q8_plot_1](https://user-images.githubusercontent.com/71573671/114633618-807a9500-9c86-11eb-9ae7-b1ccdae5dd36.png)
+
+This plot is not enough because there are lots of characters who have 100 points in "Speed" so we are going to campare between them with another graphic focus on their comics.
+
+**Step 4:** Use "Creator" and "Speed"
+```
+q8_df = q8_df.loc[:,['Creator','Speed']]
+q8_df
+```
+
+![q8_df_2](https://user-images.githubusercontent.com/71573671/114633674-9be5a000-9c86-11eb-8fac-c64e735763be.PNG)
+
+**Step 5:** Check the value counts of speed and make it in a new dataframe
+```
+q8_df = q8_df.value_counts().reset_index()
+q8_df
+```
+
+**Step 6:** Rename 0 by 'Values' and filter using median
+```
+q8_df.rename(columns={0:'Values'}, inplace = True)
+q8_df = q8_df[q8_df['Values']>np.median(q8_df['Values'])] 
+q8_df
+```
+
+![q8_2_value_c](https://user-images.githubusercontent.com/71573671/114633829-e7984980-9c86-11eb-9116-b63850566fef.PNG)
+
+**Step 7:** Create a Pivot table to make the plot easier.
+```
+q8_pivot = q8_df.pivot_table(index = 'Creator', columns = 'Speed', values = 'Values')
+q8_pivot
+```
+
+**Step 8:** Replace Null values by 0.
+```
+q8_pivot = q8_pivot.fillna(0)
+q8_pivot
+```
+
+![q8_2_pivot](https://user-images.githubusercontent.com/71573671/114633917-11ea0700-9c87-11eb-8bbb-f9f12422e07d.PNG)
+
+**Step 9:** Plot
+```
+labels = list(q8_pivot.index)
+
+x=np.arange(len(labels))
+width=0.05
+
+def plot(df,column_i, x , width, label, count):
+  data = list(df[column_i])
+  bar = ax.bar(x-width/2 + count*width, data, width, label = label)
+
+fig, ax = plt.subplots()
+fig.set_size_inches(10,6)
+count = 0
+for column_i in q8_pivot.columns:
+  plot(q8_pivot, column_i, x, width, str(column_i), count)
+  count += 1
+
+ax.set_title('Comics that has the fastest characters')
+ax.set_xlabel('Comics')
+ax.set_ylabel('Values')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+fig.tight_layout()
+plt.show
+```
+
+![q9_plot_2](https://user-images.githubusercontent.com/71573671/114633967-275f3100-9c87-11eb-97bc-fd7591cc5551.png)
 
 --------------------------------------------------------
 ### 9.Who are the characters with more power?
 
---------------------------------------------------------
-### 10.What superpowers predominate in the characters of DC Comics and Marvel Comics?
+**Step 1:** Use the next columns: "Name", "Creator" and "Power".
+```
+q9_df = final_df.loc[:,['Name','Creator','Power']]
+q9_df
+```
 
---------------------------------------------------------
+![q9_df](https://user-images.githubusercontent.com/71573671/114635577-9be79f00-9c8a-11eb-8860-0e6b92fef2c8.PNG)
+
+**Step 2:** Separate by comics and filter with data > 4th quintil
+```
+q_val = [0,20,40,60,80,100]
+quintiles = np.percentile(q9_df['Power'], q = q_val)
+
+q9_marvel = q9_df[(q9_df['Creator'] == 'Marvel Comics') & (q9_df['Power'] > quintiles[3])].fillna(0)
+q9_dc = q9_df[(q9_df['Creator'] == 'DC Comics') & (q9_df['Power'] > quintiles[3])].fillna(0)
+```
+
+**Step 3:** Plot
+```
+fig, (ax1,ax2) = plt.subplots(1,2)
+fig.set_size_inches(13,20)
+
+def barplot(df,title,x_label,y_label,min_val,max_val,step,ax):
+  ax_labels = list(df['Name'])
+  ax_values = list(df['Power'])
+  sns.barplot(x = ax_values, y = ax_labels, ax = ax, orient='h')
+  ax.set_xticks(range(min_val,max_val,step))
+  ax.set_title(title, fontsize = 16)
+  ax.set_xlabel(x_label)
+  ax.set_ylabel(y_label)
+
+def autolabel(df,ax):
+  ax_labels = list(df['Name'])
+  ax_values = list(df['Power'])
+  for text, rect in zip(ax_values, ax.patches):
+    width, height = rect.get_width(), rect.get_height()
+    x,y = rect.get_xy()
+    ax.text(x = x+width,
+            y = y+height,
+            s=text)
+
+# Marvel
+barplot(q9_marvel,'Marvel','Values','Characters',0,150,20,ax1)
+autolabel(q9_marvel,ax1)
+
+# DC
+barplot(q9_dc,'DC','Values','Characters',0,150,20,ax2)
+autolabel(q9_dc,ax2)
+
+fig.tight_layout()
+plt.show()
+```
+
+![q9_df_1](https://user-images.githubusercontent.com/71573671/114635650-c5082f80-9c8a-11eb-81dd-7358a2313d29.PNG)
+
+This plot is not enough because there are lots of characters who have 100 points in "Power" so we are going to campare between them with another graphic focus on their comics.
+
+**Step 4:** Use "Creator" and "Power"
+```
+q9_df = q9_df.loc[:,['Creator','Power']]
+q9_df
+```
+
+![q9_df_2](https://user-images.githubusercontent.com/71573671/114635720-eec15680-9c8a-11eb-8b51-196993546337.PNG)
+
+**Step 5:** Check the value counts of power and make it in a new dataframe
+```
+q9_df = q9_df.value_counts().reset_index()
+q9_df
+```
+
+**Step 6:** Rename 0 by 'Values' and filter using median
+```
+q9_df.rename(columns={0:'Values'}, inplace = True)
+q9_df = q9_df[q9_df['Values']>np.median(q9_df['Values'])] 
+q9_df
+```
+
+**Step 7:** Create a Pivot table to make the plot easier.
+```
+q9_pivot = q9_df.pivot_table(index = 'Creator', columns = 'Power', values = 'Values')
+q9_pivot
+```
+
+**Step 8:** Replace Null values by 0.
+```
+q9_pivot = q9_pivot.fillna(0)
+q9_pivot
+```
+
+![q9_pivot](https://user-images.githubusercontent.com/71573671/114635855-48c21c00-9c8b-11eb-801e-d822cf514183.PNG)
+
+**Step 9:** Plot
+```
+labels = list(q9_pivot.index)
+
+x=np.arange(len(labels))
+width=0.05
+
+def plot(df,column_i, x , width, label, count):
+  data = list(df[column_i])
+  bar = ax.bar(x-width/2 + count*width, data, width, label = label)
+
+fig, ax = plt.subplots()
+fig.set_size_inches(10,6)
+count = 0
+for column_i in q9_pivot.columns:
+  plot(q9_pivot, column_i, x, width, str(column_i), count)
+  count += 1
+
+ax.set_title('Comics that has the powerest characters')
+ax.set_xlabel('Comics')
+ax.set_ylabel('Values')
+ax.set_xticks(x)
+ax.set_xticklabels(labels)
+ax.legend()
+
+fig.tight_layout()
+plt.show
+```
+
+![q9_plot_2_real](https://user-images.githubusercontent.com/71573671/114635897-64c5bd80-9c8b-11eb-96a5-034455ff5b5a.png)
+
+# Conclusions
+1. There are more characters in Marvel Comics than DC Comics.
+2. The predominat gender in both comics is "Male".
+3. The predominat race in Marvel Comics is "Human" as a second place and "Without Race" as the first. In DC comics the predominant race is "Human" as a 1st place and "Without Race" as a 2nd.
+4. There are more Heroes in both comics than Villains.
+5. The predominant super power in both comics is "Super Strength"
+6. We can not define one character as the most intelligent but we can say that Marvel Comics have more intelligent characters than DC Comics.
+7. We can not define one character as the strongest but we can say that Marvel Comics have more strong characters than DC Comics.
+8. We can not define one character as the fastest but we can say that Marvel Comics have more fast characters than DC Comics.
+9. We can not define one character as the powerest but we can say that Marvel Comics have more powerful characters than DC Comics.
+
+
+
