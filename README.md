@@ -781,7 +781,7 @@ plt.show
 ![q4_plot](https://user-images.githubusercontent.com/71573671/114605375-a3458300-9c5f-11eb-9db6-1864d77508b4.png)
 
 --------------------------------------------------------
-### 5.Realize a comparative between the character abilites of both comics.
+### 5.What superpowers predominate in the characters of DC Comics and Marvel Comics?
 **Step 1:** Use "Creator" and "super_powers"
 ```
 q5_df = final_df.loc[:,['Creator','super_powers']]
