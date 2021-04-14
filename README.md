@@ -824,7 +824,7 @@ q5_marvel = q5_df[(q5_df['Creator'] == 'Marvel Comics') & (q5_df['Values'] > np.
 q5_dc = q5_df[(q5_df['Creator'] == 'DC Comics') & (q5_df['Values'] > np.median(q5_df['Values']))]
 ```
 
-**Step 7:** Plot
+#### **Step 7:** Plot
 ```
 fig, (ax1,ax2) = plt.subplots(1,2)
 fig.set_size_inches(18,17)
@@ -893,7 +893,7 @@ q6_marvel = q6_df[(q6_df['Creator'] == 'Marvel Comics') & (q6_df['Intelligence']
 q6_dc = q6_df[(q6_df['Creator'] == 'DC Comics') & (q6_df['Intelligence'] > quintiles[4])]
 ```
 
-**Step 3:** Plot
+#### **Step 3:** Plot
 ```
 fig, (ax1,ax2) = plt.subplots(1,2)
 fig.set_size_inches(13,10)
@@ -967,7 +967,7 @@ q6_pivot
 
 ![q6_pivot](https://user-images.githubusercontent.com/71573671/114608672-8a3ed100-9c63-11eb-91db-1a430d9981da.PNG)
 
-**Step 9:** Plot
+#### **Step 9:** Plot
 Star from the column "75" because before it there are very little information.
 ```
 q6_pivot = q6_pivot.iloc[:,6:12]
@@ -1029,7 +1029,7 @@ q7_marvel = q7_df[(q7_df['Creator'] == 'Marvel Comics') & (q7_df['Strength'] > q
 q7_dc = q7_df[(q7_df['Creator'] == 'DC Comics') & (q7_df['Strength'] > quintiles[4])].fillna(0)
 ```
 
-**Step 3:** Plot
+#### **Step 3:** Plot
 ```
 fig, (ax1,ax2) = plt.subplots(1,2)
 fig.set_size_inches(13,17)
@@ -1106,7 +1106,7 @@ q7_pivot
 
 ![q7_pivot](https://user-images.githubusercontent.com/71573671/114633466-22e64880-9c86-11eb-807b-bb0e2fa23e07.PNG)
 
-**Step 9:** Plot
+#### **Step 9:** Plot
 ```
 labels = list(q7_pivot.index)
 
@@ -1156,7 +1156,7 @@ q8_marvel = q8_df[(q8_df['Creator'] == 'Marvel Comics') & (q8_df['Speed'] > quin
 q8_dc = q8_df[(q8_df['Creator'] == 'DC Comics') & (q8_df['Speed'] > quintiles[4])].fillna(0)
 ```
 
-**Step 3:** Plot
+#### **Step 3:** Plot
 ```
 fig, (ax1,ax2) = plt.subplots(1,2)
 fig.set_size_inches(13,17)
@@ -1233,7 +1233,7 @@ q8_pivot
 
 ![q8_2_pivot](https://user-images.githubusercontent.com/71573671/114633917-11ea0700-9c87-11eb-8bbb-f9f12422e07d.PNG)
 
-**Step 9:** Plot
+#### **Step 9:** Plot
 ```
 labels = list(q8_pivot.index)
 
@@ -1284,7 +1284,7 @@ q9_marvel = q9_df[(q9_df['Creator'] == 'Marvel Comics') & (q9_df['Power'] > quin
 q9_dc = q9_df[(q9_df['Creator'] == 'DC Comics') & (q9_df['Power'] > quintiles[3])].fillna(0)
 ```
 
-**Step 3:** Plot
+#### **Step 3:** Plot
 ```
 fig, (ax1,ax2) = plt.subplots(1,2)
 fig.set_size_inches(13,20)
@@ -1359,7 +1359,7 @@ q9_pivot
 
 ![q9_pivot](https://user-images.githubusercontent.com/71573671/114635855-48c21c00-9c8b-11eb-801e-d822cf514183.PNG)
 
-**Step 9:** Plot
+#### **Step 9:** Plot
 ```
 labels = list(q9_pivot.index)
 
